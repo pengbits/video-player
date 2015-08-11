@@ -1,0 +1,38 @@
+	
+	/*
+	# Dialog Boxes =:dialog
+	# ----------------------------------------------------------------------------------------*/
+	.dialog-content {}
+	.dialog-message {
+		margin-top:0;
+		margin-bottom:10px;
+		padding:10px; 
+		width:378px;
+		border:#e1e1e1 solid 1px; 
+	 	font-size:18px;
+		line-height:22px; 
+		}
+
+	.dialog-btns {
+		position:absolute;
+		bottom:10px; right:10px; 
+		}
+	
+	#sho-ui-dialog { 
+		border: 1px solid #202423; 
+		padding: 20px;
+		}
+	
+	#sho-ui-dialog ul li { 
+		float: left; 
+		min-height: 16px; 
+		}
+			
+	#sho-ui-dialog ul li .button { 
+		min-width: 42px; 
+		display: block; 
+		}	
+
+  
+	
+  

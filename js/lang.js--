@@ -1,0 +1,41 @@
+
+    /*
+    JS
+    --------------------------------------------------------------------------------------------  
+    @site   			sho.com <common>
+    @package            lang
+    @file		        lang.js
+    @author				dpaul
+    -------------------------------------------------------------------------------------------- */  
+    
+    /**
+     * sho.lang
+     * Language enhancements to javascript primitives and static helpers written with the aim of making javascript easier to work with. 
+     * Rather than tampering with the object prototypes, we generally use a static approach, so new methods to `String` are found in `sho.string.methodName`().
+     * One notable exception to this approach is [[sho.lang.Chronic]], which contains functions related to date and time, that are automatically mixed into [[Date]]'s prototype.
+    **/
+    
+    /**
+     * sho.string
+     * Language enhancements related to the String primitive, mostly concerned with dimensions and css shorthand
+    **/
+    
+    /**
+     * sho.object
+     * Language enhancements related to the Object primitive.
+    **/
+    
+    /** 
+     * sho.number
+     * Language enhancements related to the Number primitive.
+    **/
+    
+    sho.provide('sho.lang');
+    sho.require('sho.lang.chronic');
+    sho.require('sho.lang.css');
+    sho.require('sho.lang.dimensions');
+    sho.require('sho.lang.function');
+    sho.require('sho.lang.object');
+    sho.require('sho.lang.string');
+    sho.require('sho.lang.number');
+    

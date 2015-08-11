@@ -1,0 +1,69 @@
+
+	// _media_galleri_list_view.scss
+	// styles for the list view counterpart to media_galleri.scss, essentially a port of the schedules gallery styles
+	// @todo move schedules build into lib/partials/_schedules, and consolidate these styles
+	
+	.multi-view .is-list 
+	{
+		table {
+			font-size:11px;
+			line-height:17px;
+			color:#cbcbcb; }
+			
+		td {
+			padding:10px 15px;
+			vertical-align:top;
+			border-right:#000 solid 1px; }
+
+		th {
+			padding:7px 15px 3px 15px;
+			border-right:#000 solid 1px;
+			text-transform:uppercase;
+			font-weight:normal;
+			line-height:15px;
+			color:#989898;
+			span {
+				padding: 0 5px;
+				height: 8px;
+				font-size: 10px;
+				color: #bbbbbb;
+				text-transform: none;
+				}
+			}
+
+		.last {
+			border-right:0; }
+
+		td a {	
+			color:#cbcbcb;
+			text-transform:uppercase;}
+
+		td a.title {
+			color:#FFF;
+			font-weight:600; }
+		
+		a.disclosure { /* this is redundant but a bit easier to find, also in schedules.css */
+			padding-left:14px;	
+			background:transparent no-repeat url(/assets/images/lib/icons/disclosure-red_9x5.png) center left; }
+
+		a.video {	
+			padding-left:10px;
+			background:transparent no-repeat url(/assets/images/lib/icons/play-red_4x7.png) center left; }
+
+		tr.header {
+			background-color:#1a1a1a; }
+
+		tr {
+			background-color:#2b2b2b; }
+
+		tr.featured {
+			background-color:#162f35; }
+
+		tr.alt td {	
+			background-image:url(/assets/images/lib/black-checkerboard_10x10.png) }
+	
+	}
+	
+	
+
+		

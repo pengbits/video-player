@@ -1,0 +1,565 @@
+
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site				sho.com <desktop>
+	// @file				navigatio.css
+	// @type				stylesheet
+	// @author			dpaul
+  	// 
+  	// Global and secondary/series navigation
+  	// 
+  	// 1. layout
+  	// 2. primary
+  	// 3. search
+  	// 4. secondary/series
+  	// 5. common/modules
+  	// 6. header, accounts login menu
+  	// 7. footer
+  	// 
+	// ------------------------------------------------------------------------------------------
+	.nav-header {	
+		top:0px;
+		height:22px;}
+
+	.nav-primary, .nav-secondary {
+		top:20px;
+		height:40px; }
+
+	.nav-primary.debug, .nav-secondary.debug { height:400px; }
+	.nav-secondary.debug { top:460px; }
+
+	.nav-footer {
+		bottom:0;
+		height:15px;
+		background:#000; }
+
+	//
+	// =:primary 
+	// -----------------------------------------------------------------------------------------
+	.nav-primary { 
+		background:#222222;}
+
+	.nav-primary ul {
+		margin-left:20px; }
+	
+	.nav-primary ul.inline {
+		height:0; }
+
+	.nav-primary li a {
+		font-size:14px!important;
+		font-weight:600;
+		line-height:10px;
+		padding:15px 13px 15px 12px;}
+
+	.nav-primary li#sho-logo a {
+		padding:0;
+		width:70px;
+		margin-right:13px;
+		height:40px;
+		overflow:hidden;
+		text-indent:-1000px;
+		background-image: url(/assets/images/lib/showtime-logo_70x40.png); }
+	
+	.ipad .nav-primary li#sho-logo a { background-image: url(/assets/images/lib/ShowtimeLogo.svg)!important; }
+	
+
+	.nav-primary li.aktiv a {
+		background:#151515;}
+
+	.nav-primary li.franchise a {	
+		text-transform:uppercase; }
+
+	.nav-primary .nav-content li a {
+		font-size:12px!important;
+		line-height:12px;
+		font-weight:600; }
+		
+	.nav-primary .nav-content {	
+		padding-left:115px; /* align first nav item with 'SERIES' in nav */
+		background:#151515; }
+	
+	.nav-primary .nav-content ul {
+		margin-left:0;}
+		
+	.nav-primary .callout ul { /* draw decorative strokes around callout */
+		margin-right:20px;
+		border-right:#3b3c3c solid 1px; }
+
+	.nav-primary li a:hover, .nav-primary li a:active {
+		color:#CCC; text-decoration:none; }			
+		
+
+	// =:highlight, =:aktiv,
+	// set active page to red (override in series skin)
+	.all-series .nav-primary li#series a,
+	.movies .nav-primary li#movies a,
+	.category.comedy .nav-primary li#comedy a,
+	.category.reality-docs .nav-primary li#reality-docs a,
+	
+	// seasonal nav - this will change!
+	.free-preview #promo-item a
+	{
+		color:#ff0000; 
+		font-weight:600;
+	}
+	
+	/* highlight sports in global nav on sports pages */
+	.sports .nav-primary li#sports a {
+		color:red;
+	}
+	/* but not in on-demand section */
+	.on-demand.sports .nav-primary li#sports a {
+		color:#fff;
+	}
+
+	/* # undo false highlite of movies and series in the schedules, comedy and reality-docs sections: */
+	.schedules.on-demand.movies .nav-primary li#movies a,
+	.schedules.on-demand.series .nav-primary li#series a,
+	.category.comedy .nav-primary li#movies a,
+	.category.reality-docs .nav-primary li#movies a, 
+	.category.comedy .nav-primary li#series a,
+	.category.reality-docs .nav-primary li#series a 
+	{ 
+		color:#FFF; 
+	}
+
+	#promo-item a {
+	    background: url("/assets/images/lib/icons/disclosure-red_11x7.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+	    margin-left: 8px;
+		padding-left: 16px;
+		text-transform:uppercase;
+	}
+	
+	#pipebar {
+	    border-left: 1px solid gray;
+	    float: left;
+	    height: 11px;
+	    left: 13px;
+	    position: relative;
+	    top: 15px;
+	    width: 26px;
+	}
+
+	// // style for addition main nav items, seperated by a pipe bar
+	// <ul class="secondary-inline">
+	// 	<li id="pipebar"></li>
+	// 	<li id="special-message"><a href="#">Order Showtime</a></li>
+	// </ul> 
+    // 
+	// #special-message {
+	// 	padding-left: 36px;
+	// 	text-transform:uppercase;
+	// }
+    // 
+	// #special-message a:hover {
+	// 	color:#ccc;
+	// }
+    // 
+    // 
+	// .secondary-inline {
+	//   float: left;
+	//   height: 0;
+	//   left:-18px;
+	//   position: relative;
+	// }
+    // 
+	// #special-message a {
+	// 	background: url("/assets/images/lib/icons/disclosure-red_11x7.png") no-repeat scroll left center transparent;
+	//     font-weight: 600;
+	//     padding: 17px 13px 13px 16px;
+	// 	height: 12px;
+	// 	line-height: 7px;
+	// }
+    // 
+	// .ie8 #special-message a { font-family:"ff-din-web",sans-serif; font-weight:600; 
+
+
+		
+	// 
+	// =:search 
+	//important had to be used as input styles in the account section were overwriting the search box dimensions causing icon to be missing SITE-10995
+	// ------------------------------------------------------------------------------------------
+	.nav-search {
+		position:absolute; top:0; right:20px;
+		width:140px;
+		height:40px;
+		color:#FFF;
+		background:#222222; 
+
+		.nav-search-query,
+		.nav-search-go {
+			display:block; 
+			float:left;
+			font-size:13px; 
+			line-height:16px;
+			height:16px;
+			padding:12px 5px 10px 5px;
+			color:#f1f1f1; 
+			background:0;
+			border:0; 
+			}
+
+		.nav-search-query {
+			width:100px !important;
+			text-align:right; 
+			@extend body.ff-din-web;
+			}
+
+		.nav-search-go {
+			width:10px !important;
+			padding:14px 10px;
+			background:transparent no-repeat url(/assets/images/lib/maginifying-glass_10x10.png) center center; 
+			}
+
+
+		.nav-search-query:focus { 
+			outline: none;
+			} 
+
+		}
+		
+	//
+	// =:secondary/=:series navigation
+	// -----------------------------------------------------------------------------------------
+	.nav-secondary {
+		top:60px;
+		height:40px;
+		min-width:800px;
+		background:#87a4a5;
+		color:#000; }
+
+	.nav-secondary .series-title, .nav-secondary .page-title {
+		float:left;
+		font-size:27px;
+		line-height:20px;
+		margin-left:20px;
+		padding:10px 20px 10px 0px;
+		color:#000;}	
+	
+	.nav-secondary .series-title a, .nav-secondary .page-title a {
+		font-weight:normal !important;
+		text-decoration:none; }
+	
+	/* # b element is used as a kind of small heading in the nav */ 
+	.nav-secondary li a, .nav-secondary li b {
+		display:block;
+		font-size:12px;
+		line-height:12px;
+		font-weight:bold; }
+	
+	.nav-secondary li a {
+		padding:20px 10px 8px 10px;
+		height:13px;}
+
+	.nav-secondary li b {
+		padding:0px 10px; }
+
+	  /* # a strong selector is needed to override base rule above */
+	.nav.nav-secondary a, .nav.nav-secondary .nav-content a { 
+		color:#000;
+		font-weight:bold; }
+
+	.nav-secondary .nav-content {
+		position:relative;
+		padding-left:305px; /* # 115 [outer margin] + 150 [promo width] + 20 [promo margin] + 1px border + 19 [promo margin 2] = 305px */
+		min-height:120px;
+		background:#999999;}
+
+	.nav-secondary .nav-content.no-promo {
+		padding-left:20px; }
+	
+	.nav-secondary .nav-content .nav-promo {
+		position:absolute; 
+		top:15px;
+		left:117px; 
+		width:150px !important;
+		padding-right:20px; 
+		border-right:#000000 solid 1px; }	
+	
+	.nav-secondary .callout ul {	
+		/*border:#000000 solid 1px;*/ }
+	
+	.nav-secondary .callout.stroke-right ul { 
+		margin:0px 20px 0px 0px;
+		/*border-right: 1px solid rgb(0, 0, 0);
+		border-right:1px solid rgba(0, 0, 0, .5);*/
+		border-left:0;
+		border-top:0;
+		border-bottom:0; }
+
+	.nav-secondary .callout.stroke-left ul {
+		margin:0; padding-left:20px;
+		border-width:0px 0px 0px 1px;}
+	
+	.nav-secondary .nav-promo a { display:block; position:relative; }
+
+	.nav-secondary .nav-promo img.play-icon {
+		position:absolute;
+		top:60px; 
+		right:5px;
+		width:20px; 
+		height:20px; }
+
+	.nav-secondary .nav-promo img {
+		margin-bottom:6px }
+
+	.nav-secondary .nav-promo b {
+		font-weight:bold; }
+
+	.nav-secondary li.aktiv a {
+		background:#999999;}
+
+	/* 
+	=:tertiary
+	# the only instance of a docked tertiary nav so far is in schedules */
+	.nav-tertiary {
+		top: 100px;
+		height:30px;
+		padding-left:20px;
+		background:#719293; }
+
+	.ipad .nav-tertiary {
+	    top:99px;}
+
+	.nav-tertiary li a {
+		padding:9px 11px;
+		font-size:12px;
+		line-height:17px;
+		color:#022627;
+		font-weight:bold; }
+
+	.nav-tertiary li:first-child a {
+		padding-left:0; }
+
+
+	/*
+	=:common, =:modules 
+	----------------------------------------------------------------------------------------*/
+	.nav-content { 	
+		display:block;
+		visibility:hidden;
+		clear:both;
+		padding-top:15px;
+		padding-bottom:15px;
+		overflow:hidden;}
+
+	.nav-content.aktiv { visibility:visible;}
+
+	.nav-col { float:left; }	
+	.x1 .nav-col { width:100%;}
+	.x2 .nav-col { width:48%; }
+	.x3 .nav-col { width:32%; }
+	.x4 .nav-col { width:24%; }
+	.x5 .nav-col { width:19%; } 	
+	.x6 .nav-col { width:16%; }	
+	.x7 .nav-col { width:14%; }	
+	.x8 .nav-col { width:12%; }
+	
+	.nav-col li a:hover, .nav-col li a:active, 
+	.nav-promo a:hover, .nav-promo a:active { text-decoration:underline; }
+
+	.nav li a {
+		display:block; }
+	
+	.nav-header li a {
+		display:block;
+		padding:4px 8px; }	
+
+	.nav-content .nav-col li a,
+	.nav-content .nav-col li b {
+		display:block;
+		line-height:16px;
+		padding:4px 10px 4px 0px;}
+
+
+	/*
+	=:header, =:login, =:accounts
+	----------------------------------------------------------------------------------------*/
+	.nav-header {
+		font-size:12px;
+		font-weight:600;
+		line-height:12px;
+		background:#000; /* # hide overhanging carousel panel in chrome */
+		overflow:visible;}
+	
+	.nav-header ul.inline,
+	.nav-header .my-sho {
+		float:right;
+		height:20px; }
+
+	.nav-header ul {
+		padding-right:3px; }	
+	
+	.nav-header .dd-content ul {
+		background:none;
+	}
+
+	.nav-header .my-sho {
+		padding-left:5px;
+		min-width:68px;
+		background:transparent no-repeat url(/assets/images/lib/nav/nav-secondary-stroke_1x9.png) center left;}
+	
+	.nav-header .my-sho #login {
+        margin-left: 8px;
+		font-size: 12px;
+		line-height:12px;}		
+
+	.nav-header li a, .nav-header p {
+		padding:4px 8px; }
+	
+	.nav-header .my-sho .field {
+		float:left;
+		cursor:pointer; }	
+
+	.nav-header li a:hover, .nav-header li a:active,
+	.nav-header .my-sho a:hover {
+		color:#CCC; text-decoration:none; }
+
+	.nav-header .my-sho	p { padding: 4px 4px;}
+
+	/*
+	=:header, =:hightlight, =:aktiv
+	----------------------------------------------------------------------------------------*/
+	.video-portal-full-episodes .nav-footer li#nav-footer-video a {color:#FF0000} 	    /* full free episodes in header nav is red in full-eps page, not other video pages - see video-portal.css line 29 to revert */
+	/*.video-portal .nav-header li#nav-header-video a {color:#FF0000} 			        /* video item in header nav is red in the screening room */
+	.video-portal.series-video .nav-header li#nav-header-video a {color:#F1F1F1}        /* ..but not in the video section of series sites */
+	.video-portal .nav-header li#nav-header-video a:hover {color:#CCC;}			        /* this restores the grey hover state */
+	.schedules .nav-header li#nav-header-schedules a {color:#FF0000;} 	
+	
+	/*
+	=:dropdown */
+	.nav-header .dd-menu .dd-title a,
+	.nav-header .dd-menu .dd-content li a {
+		padding:4px 10px;
+		font-size:12px; line-height:12px;
+		border:0; 
+		background-color:#000;
+		}
+	
+	.nav-header .dd-menu {
+		width: auto;
+		min-width:80px; // must be at least as wide as 'Red Rewards' item, even if username is shorter
+		padding-right:20px; }
+	
+	.nav-header .dd-menu .dd-title a {
+		width:100%; }
+
+	.nav-header .dd-menu .dd-content {
+		border:0; background:#000!important;
+		width:100%;
+		padding-bottom:10px; }
+	
+	.nav-header .dd-menu .dd-content li a {
+		padding:5px 10px;
+		
+		text-align:left }	
+	
+	.nav-header .dd-menu .dd-content li a:hover,
+	.nav-header .dd-menu .dd-content li a:active {
+		color:#ccc; text-decoration:none; }
+	.nav-header .dd-menu .dd-title a {
+		background-image:url(/assets/images/lib/icons/dropdown-arrow-grey.png) }
+
+	//
+	// =:footer 
+	// ---------------------------------------------------------------------------------------
+	//  at time of this writing, footer nav contains:
+	// 
+	//  - What's New
+	//  - Showtime Anytime
+	//  - Apps
+	//  - Interactive TV
+	//  - About
+	//  - Contact
+	// 
+	//  The content is around 950px wide including the legal, which means our 'alternate' layout is really shown more often than not.
+	// 
+	//  - at widths of 1306 or more, the footer and legal fit on a sigle line 
+	//  - at 870px 1306px, legal needs 2 lines
+	//  - at 870px or less, 3 lines.
+	//  
+	//  We should revisit this layout. At smaller sizes, the legal and footer should be stacked, not floated next to each other.
+	//  Also, the schedule ticker, which creates many issues if we try to make responsive, stops being useable at smaller widths!
+	// ---------------------------------------------------------------------------------------
+	.nav-footer { 	
+		position:relative;
+        min-width: 800px;
+		height:20px;
+		font-size:11px;
+		line-height:21px;
+		background:#000;
+		color:#999;
+		&.docked, &.sticky {
+			position:fixed;
+			bottom:0;
+			}
+		}
+
+	.nav-footer .legal {
+		//margin-right:265px; 
+        background: #000;
+    }
+
+	.nav-footer .footer {
+		position:absolute;
+		top:0;
+		right:0; }
+	
+	.nav-footer .footer ul { float:right; }
+	
+	.nav-footer .footer li a {
+		padding:0 7px;
+		font-size:11px;
+		font-weight:600;
+		line-height:22px;
+		color:#F1F1F1;}
+
+	/* # IE's treatment of din medium as bold would break the layout, prevent that. */
+	.ie .nav-footer .footer li a { 
+		font-weight:400; }
+	
+	.nav-footer .legal {
+		padding-left:4px; 
+		line-height:22px;
+        
+        p { 
+            //padding-bottom: 11px;
+        }
+    }
+
+	.nav-footer .legal a {
+		color:#999; text-decoration:underline; }
+
+	.nav-footer .legal a:hover {
+		/*text-decoration:none;*/ }  /* ??? */
+	
+	.nav-footer .footer li a:hover, .nav-footer .footer li a:active {
+		color:#CCC; text-decoration:none; }
+	
+	/*
+	=:min-width, =:media queries alternate layout 
+	----------------------------------------------------------------------------------------*/
+	/* # At < 870px the legal needs 3 lines */
+	@media only screen and (max-width:950px) { 									
+		.nav-footer 			{   }
+		.nav-footer .footer 	{ 
+            position: relative;
+            width: 100%;
+            text-align: right;
+        }
+		.nav-footer .legal 	{ 
+            padding-top: 22px;
+            line-height: 22px; 
+        }
+	}
+
+	/* # At 870 - 1305px the legal needs 2 lines*/
+	@media only screen and (max-width:1455px) and (min-width:870px) { 			
+		//.nav-footer             { height:27px; line-height:11px; }
+//        .nav-footer .footer     { padding-top:0; padding-bottom:8px;}
+//        .nav-footer .legal         { padding-top:4px; }
+	}
+
+
+

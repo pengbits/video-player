@@ -1,0 +1,46 @@
+	
+	// 
+	// pagination
+	// ----------------------------------------------------------------------------------------
+	// <div class="modal-inner">
+	// 	<div class="modal-tbar">
+	// 		<div class="modal-pagination">
+	// 			<span class="prev">Previous</span>
+	// 			<span class="page">1</span>
+	// 			<span class="page aktiv">2</span>
+	// 			<span class="page">3</span>
+	// 			<span class="elipsis">...</span>
+	// 			<span class="page">5</span>
+	// 			<span class="prev">Next</span>
+	// 		</div>
+	// 		<div class="modal-closer">&nbsp;</div>
+	// 	</div>
+	// <div class="modal-content"> 
+	// --------------------------------------------------------------------------------------
+	.modal-pagination {
+		position:absolute;
+		top:0;
+		width:50%;
+		text-align:right;
+		}
+
+	.modal-pagination .page, 
+	.modal-pagination .elipsis, 
+	.modal-pagination .next, 
+	.modal-pagination .prev {
+		display:inline-block;
+		padding:0px 2px;
+		cursor:pointer 
+		}
+	
+	.modal-pagination .page.aktiv {
+		color:#FF0000; 
+		}
+	
+	.modal-pagination .prev { 
+		padding-left:10px; background:transparent no-repeat url(/assets/images/lib/pagination/arrow-prev_5x8.png) center left; 
+		}
+	
+	.modal-pagination .next { 
+		padding-right:10px; background:transparent no-repeat url(/assets/images/lib/pagination/arrow-next_5x8.png) center right; 
+		}

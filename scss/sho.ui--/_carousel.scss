@@ -1,0 +1,360 @@
+
+	//
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site				sho.com <rebuild>
+	// @project			_
+	// @file				carousel.css
+	// @type				stylesheet
+	// @author			dpaul
+	// @desc				Rules for the liquid carousel component.
+	// @note	 			we are now using webkit-transform translateZ(0) across the board, as it no longer breaks 
+	// @note	 			the clickability of the calls-to-action in Chrome.
+	// ------------------------------------------------------------------------------------------
+	
+	/*
+	=:panels */
+	.carousel {
+		// this margin-top setting was a dependancy for some pages (ie info), 
+		// but feels heavy-handed now that we have .has-nav-secondary helpers
+		// margin-top: 100px;
+		overflow: hidden;
+		width: 100%;
+		}
+	
+	.sho-home .carousel {
+		/* margin-top: 45px; */
+		}
+	
+	.carousel-content {
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		}
+	
+	.carousel .panel {
+		position: relative !important;		/* # this is needed for animation to work */
+		}
+	
+
+	.carousel .panel {
+		-webkit-transform: translateZ(0);
+		}
+	
+	.carousel .panel.defaultCta {
+		cursor: pointer;
+		}
+	
+	.carousel .panel img {
+		position: absolute;
+		}
+	
+	.ie8 .carousel .panel img {
+		opacity: inherit;
+		filter: inherit;
+		}
+	/* # this is needed for jquery fades */
+	
+
+	/*
+	=:text-block */	
+	.carousel .text-block {
+		position: absolute;
+		display: block;
+		text-transform: uppercase;
+		}
+	
+	.carousel .text-block.align-vert {
+		top: 0px;
+		left: 50px;
+		}
+	
+	.carousel .text-block .title {
+		display: block;
+		clear: both;
+		font-weight: 600;
+		font-size: 65px;
+		line-height: 55px;
+		color: #FFFFFF;
+		}
+	
+	.ie8 .carousel .text-block .title {
+		font-family: "ff-din-web-n6","ff-din-web",sans-serif;
+		font-weight: normal
+		}
+	
+	/* # The title is broken into individual block-level elements to calculate each word's width */
+	.carousel .text-block .title u {
+		text-decoration: none;
+		}
+	
+	/* 
+		# Create dynamic title sizes for headline. We set thedesired point size and leading and use padding to normalize the
+		# gap between title and calls to action at differet sizes. */
+	.carousel .text-block.font-large .title {
+		font-size: 65px;
+		line-height: 55px;
+		padding-top: 6px;
+		padding-bottom: 0px!important;
+		letter-spacing: -0.9px;
+		}
+	.carousel .text-block.font-medium .title {
+		font-size: 50px;
+		line-height: 42px;
+		padding-top: 7px;
+		padding-bottom: 13px;
+		}
+	.carousel .text-block.font-small .title {
+		font-size: 45px;
+		line-height: 39px;
+		padding-top: 8px;
+		}
+	
+	.carousel .text-block.debug 			{ background: #333; }
+	.carousel .text-block.debug.font-large  { background: purple }
+	.carousel .text-block.debug.font-medium { background: green }
+	.carousel .text-block.debug.font-small  { background: blue }
+	.carousel .text-block.debug u {/*# outline:black solid 1px;*/ }
+	.carousel .text-block.debug.font-large u {/*# outline:#CCC solid 1px;*/ }
+	
+	.carousel .text-block .sub-title {
+		display: block;
+		padding: 5px 0px 0px 0;
+		color: #fff;
+		text-transform: none;
+		}
+	
+	.carousel .text-block .options,
+	.carousel .text-block .sub-title {
+		display: block;
+		font-size: 15px!important;
+		font-weight: 400;
+		line-height: 18px !important;
+		color: #FFFFFF!important;
+		}
+	
+	 .carousel .text-block .options {
+		padding-top: 16px;
+		}
+	
+	.text-block .options a {
+		display: block;
+		color: #FFFFFF;
+		}
+	
+	.text-block .options.tunein {
+		text-transform: none;
+		}
+	
+	/* # design flourish */
+	.text-block .options.tunein .accent {
+		display: block;
+		margin-top: 7px;
+		width: 35px;
+		height: 5px;
+		background: #fd0101;
+		color: #fd0101;
+		font-size: 1px;
+		}
+	
+	.text-block .options.more-info a.details,
+	.text-block .options.more-info a.more,
+	.text-block .options.more-info a.video {
+		font-size: 13px!important;
+		font-weight: 600;
+		padding-left: 18px;
+		background: transparent no-repeat url(/assets/images/lib/icons/disclosure-red_11x7.png) center left;
+		}
+	.text-block .options.more-info a.video {
+		background: transparent no-repeat url(/assets/images/lib/icons/play-red_7x11.png) center left;
+		}
+	
+	.ie .text-block .options.more-info a.video {
+		background-position-y: 5px;
+		}
+	
+
+
+	/*
+	=:filmstrip, =:thumbs*/
+	.carousel-filmstrip,
+	.carousel-filmstrip-bounds {
+		height: 90px; /* # 90px thumb + 6px indicator */
+		bottom:67px; /* # 20px footer + 47px on-tonight */
+		}
+	
+	.carousel-filmstrip {
+		background: #000;
+		overflow: hidden;
+		}
+	
+	/* # create a slightly too-wide inner container to fix the last thumbnail's gutter */
+	.carousel-filmstrip .carousel-filmstrip-inner {
+		width: 101%;
+		}
+	
+	.carousel-filmstrip.custom-width {
+		background: url(/assets/images/lib/black-75.png);
+		}
+	
+	.carousel-filmstrip .thumb {
+		float: left;
+		}
+	
+	.carousel-filmstrip .thumb-inner {
+		height: 90px;
+		cursor: pointer;
+		background: transparent no-repeat url(/assets/images/lib/clear.png) center center; 	/* base rules for image, actual src is set in javascript*/
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		}
+	
+	/* # The border effect on thumb and indicator is achieved with margins: */
+	.carousel-filmstrip .thumb .thumb-title,
+	.carousel-filmstrip .thumb .thumb-inner {
+		margin-right: 2px;
+		}
+	
+	.carousel-filmstrip .thumb-inner .title {
+		background: url(/assets/images/lib/black-75.png);
+		height: 76px;
+		padding: 10px 0;
+		font-size: 14px;
+		line-height: 16px;
+		text-transform: uppercase;
+		overflow: hidden;
+		display: none;
+		}
+	
+	.carousel-filmstrip .thumb-inner .title b {
+		display: block;
+		padding: 0 10px;
+		}
+	
+	.carousel-filmstrip .last .thumb-inner .title b {
+		padding-right: 20px;
+		}
+	
+	.carousel-filmstrip .thumb:hover .title,	 
+	.carousel-filmstrip .thumb.aktiv .title {
+		display: block;
+		}
+	
+	.carousel-filmstrip .thumb .thumb-indicator {
+		background-color: #737373;
+		height: 6px;
+		}
+	
+	.carousel-filmstrip .thumb.aktiv .thumb-indicator {
+		background-color: red;
+		}
+	
+	.carousel-filmstrip.start-open .thumb .thumb-indicator {
+		height: 0px;
+		}
+	.carousel-filmstrip.start-open .thumb.aktiv .thumb-indicator {
+		height: 3px;
+		}
+	
+	.ie .carousel-filmstrip.start-open .thumb .thumb-indicator {
+		height: 6px;
+		}
+	.ie .carousel-filmstrip.start-open .thumb.aktiv .thumb-indicator {
+		height: 6px;
+		}
+	
+/*
+		# We override .dock to make the filmstrip absolutely positioned, rather than fixed.
+		# this allows it work in both scrolling and non-scrolling contexts. */
+	.docked.carousel-filmstrip,
+	.docked.carousel-filmstrip-bounds {
+		position: absolute;
+		bottom: 0px;
+		}
+	
+/*
+		# Internet Explorer needs a shim for background-size:cover. =:ie */
+	.carousel-filmstrip.shimmed .thumb .thumb-inner {
+		height: 96px;
+		position: relative;
+		overflow: hidden;
+		}
+	
+	.carousel-filmstrip.shimmed .thumb-inner .title {
+		position: absolute;
+		width: 100%;
+		}
+	
+	.carousel-filmstrip.shimmed .shim {
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		height: 90px;
+		border-right: red solid 4px;
+		overflow: hidden;
+		}
+	
+	.carousel-filmstrip.shimmed .shim-inner {
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: 100%;
+		height: 90px;
+		}
+	
+	/* 
+		=:pinkie */
+	.carousel-filmstrip .thumb.pinkie .thumb-indicator {
+		}
+	
+
+/*
+		# The flash-panel allows for a flash video to be inserted into a carousel panel, under the text and calls to action. The so-called *Textural Video*.
+		# It is stacked under the panels so it does not need hide/show capablilties. =:flash-panel */
+	.flash-panel {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		}
+	
+	.flash-panel-inner {
+		width: 100%;
+		height: 100%;
+		}
+		
+	.flash-panel-swf {}
+	/* overwritten by swfobject */
+	
+	/* # Audio controls for mute/unmute on the flash-panel. =:audio */
+	.carousel-audio-controls {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		}
+	
+	/* # We need a better way to shift these into focus, not sure what's wrong here, but probably has to do w/ full-bleed/non-full-bleed */
+	.movies .carousel-audio-controls, .comedy .carousel-audio-controls, .reality-docs .carousel-audio-controls, .series .carousel-audio-controls {
+		right: 35px;
+		}
+	
+	.carousel-audio-controls .toggle {
+		display: block;
+		width: 18px;
+		height: 18px;
+		text-indent: -1000px;
+		overflow: hidden;
+		}
+	
+	.carousel-audio-controls.sound-on .toggle {
+		background-image: url(/assets/images/lib/icons/carousel-audio-sound-on_18x18.png);
+		}
+	.carousel-audio-controls.sound-off .toggle {
+		background-image: url(/assets/images/lib/icons/carousel-audio-sound-off_18x18.png);
+		}
+	
+
+	/* No surrender, No delete! */

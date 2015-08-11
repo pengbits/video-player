@@ -1,0 +1,55 @@
+
+	// 
+	// _photo_gallery_thumbs.scss.
+	// ----------------------------------------------------------------------------------------
+	// rules for collapsing drawer of thumbs in photo gallery
+	// indicator: 6px
+	// thumbnail: 84px;
+	// total drawer height: 90px
+	.photo-gallery-thumbs-outer {
+		position:fixed;
+		bottom:138px;
+		left:0px;
+		right:0px;
+		height:90px;
+		overflow:hidden;
+		}
+	
+	.photo-gallery-thumbs { 
+		a, img {
+			display:block;
+			float:left;
+			width:134px; // width:144px;
+			height:84px; // height:90px;	
+			}
+		a {
+			border-right:#000 solid 2px;
+			background-size:cover;
+			height:90px;
+				
+			&.aktiv img{
+				border-color:#FF0000;
+				}
+			&:last-child {
+				border-right:0;
+				}
+			}
+			
+		img {
+			border-top:#777777 solid 6px;
+			}
+		
+		img:hover { 
+			background-color: rgba(0,0,0,0.50);
+			}
+
+		}
+	
+	.photo-gallery-thumbs-inner {
+		position:relative;
+		padding-top:84px; // hidden
+		}
+		
+	.photo-gallery-thumbs-bg {
+		background:#000
+		}

@@ -1,0 +1,51 @@
+	
+	// a mixin for setting up fixed-fluid column layouts
+	// call from inside your namespace ie 
+	// .gamify {
+	//		@include two-col-fixed-fluid(235px)
+	// }
+	// or 
+	// .gamify {
+	//		@include two-col-fixed-fluid(235px,10px)
+	// }
+	// that will define the col widths, for bg fills etc just add rules:
+	//
+	// .gamify {
+	//		@include two-col-fixed-fluid(235px,10px)
+	//		.col-left  { background: purple }
+	// 		.col-right { background: yellow }
+	// }
+	//
+	// 
+	.two-col-fixed-fluid {
+		@extend .cf;
+
+		.col-inner {
+			//min-height:600px;
+			}
+			
+		.col-left {
+			float:left;
+			width:370px;
+			margin-left:-100%;
+			}
+
+		.col-right-wrap {
+			float:left;
+			width:100%;
+			}
+
+		.col-right {
+			margin-left:370px
+			}
+		}
+		
+	// base styles are above, this just sets up the col widths and padding for the context
+	@mixin two-col-fixed-fluid($left-width:370px,$margin:0px){
+	.two-col-fixed-fluid {
+		.col-inner { margin:$margin; }
+		.col-left  { width:$left-width; }
+		.col-right { margin-left:$left-width; }
+		}	
+	}
+	

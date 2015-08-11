@@ -1,0 +1,42 @@
+	
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site			sho.com <desktop>
+	// @project      	sports homepage prototypes
+	// @file			_nested_schedule.scss
+	// @author			dpaul.
+	// @desc			rules for nested schedule module
+	// ----------------------------------------------------------------------------------------*/
+		
+	.module.nested-schedule {
+		padding-bottom:0;
+		
+		li {
+			display:block;
+			padding:16px 20px 19px 20px;
+			border-bottom:#000 solid 1px;
+			line-height:16px;
+			text-transform:capitalize;
+			color:$sports-lightest-grey;
+			
+			&.schedule-head,
+			&.schedule-footer {
+				padding:15px 20px;
+				}
+			&.schedule-footer a {
+				text-transform:uppercase;
+				@include has-see-all-disclosure;
+				}
+			}
+			
+		li:last-child {
+			border-bottom:0;
+			}
+		
+		.schedule-key {
+			color:#ff1400;
+			}
+		}
+
+	

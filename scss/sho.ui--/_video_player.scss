@@ -1,0 +1,732 @@
+
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site				sho.com <rebuild>
+	// @project				video
+	// @file				video_player.scss
+	// @type				stylesheet	
+	// @author				dpaul
+	// Rules for global overlay video player
+  	// 
+	// 1. outer wrapper
+	// 2. controls
+	// 3. dock (about, share and related-videos)
+	// 4. age-gate
+	// 5. order-banner
+	// 6. title/redirect pages
+	// 
+	// 
+	// outer wrapper
+	// ------------------------------------------------------------------------------------------
+	.video-player.video-player-outer, .video-player-inner, .video-player-stage, .video-player-experience {
+		width:100%; height:100%; }
+
+	.video-player.video-player-outer {
+		overflow:hidden;
+		position:fixed; 
+		font-size:10px;
+		top:0; left:0;
+		text-transform:uppercase; 
+		}
+	
+	.video-player-inner {
+	 	position:relative; 
+		}
+	
+	.video-player-stage {
+		background:#000;
+		position:relative; 
+		}
+	
+	.video-player-stage#fpo-stage { 
+		background:transparent no-repeat url(/assets/images/home/panels/houseoflies-kristenbell-midair_1024x640.jpg) center center !important;
+		background-size:cover;
+		}
+	
+	.video-player-closer {
+		position:absolute; top:0px; right:0px;	
+		padding:10px;
+		width:21px; height:21px; 
+		background:transparent no-repeat url(/assets/images/video/player/icons/closer_21x21.png) 10px 10px; 
+		cursor:pointer; 
+		}
+	
+	.video-player-controls {
+		width:100%; position:absolute; 
+		}
+	
+	.video-player-bench-marker {
+		position:absolute; top:10px; left:10px;
+		font-size:12px;
+		line-height:14px;
+		width:300px;
+		}
+	
+	.video-player-bench-marker table {
+		border-collapse:collapse;
+		background:#000; 
+		}
+		
+	.video-player-bench-marker td,
+	.video-player-bench-marker th {
+		padding:4px 8px 2px 8px;
+	 	border:#999 solid 1px 
+		}
+	
+	
+	// 
+	// =:loadmask 
+	// ----------------------------------------------------------------------------------------
+	// IMPORTANT! attempting to cloak the brightcove swf with `display:none`, `visibility:hidden` etc proved to be disasterous, the API shatters quite easily. 
+	// Amazingly, even a cropped aproach `width:10px;height:10px;overflow:hidden;` caused problems in firefox!. We ended up going with a div stacked on top. 
+	.docked.video-player-load-mask {
+		top:0px; bottom:26px; 
+		background:#000 no-repeat url(/assets/images/lib/spinners/balls_000000_48x48.gif) center center;
+		}
+
+  .buffering .docked.video-player-load-mask { 
+  	background-color:transparent;
+    background-image:url(/assets/images/lib/spinners/balls_transparent_48x48.gif); 
+		}
+
+	//
+	// =:controls  
+	// ----------------------------------------------------------------------------------------
+	.video-player-controls, .video-player-controls-inner {
+		width:100%;
+		height:26px;
+		}
+		
+	.video-player-controls {
+		bottom:0px; 
+		}
+	
+	.video-player-controls-inner { 
+		position:relative; 
+		}
+		
+	.video-player-controls .control {
+		cursor:pointer;
+		height:26px;
+		position:absolute;
+		font-size:0px;
+		line-height:26px;
+		background:#000; 
+		}
+	
+	.video-player .control.piped {
+		border:#2A2A2A solid 1px;
+		border-bottom:0; border-right:0;
+		height:25px; 
+		}
+
+	.video-player .control.first.piped {
+		border-left:#2A2A2A solid 1px; 
+		}
+	
+	
+	// =:play 
+	.video-player .control.play-pause {
+		left:0; 
+		width:36px;
+		background-color:#840000; 
+		}
+		
+	.video-player .control.play-pause.paused 	{ 
+		background-image:url(/assets/images/video/player/icons/play_36x26.png); 
+		}
+	
+	.video-player .control.play-pause.playing { 
+		background-image:url(/assets/images/video/player/icons/pause_36x26.png); 
+		}
+	
+	.video-player.loading .control.play-pause {
+		border-right:#2A2A2A solid 1px; 
+		border-top:#2A2A2A solid 1px; 
+		background-color:#000; 
+		background-position:0px -1px;
+		}
+	
+
+	// =:timeline 
+	// Stretch absolutely positioned elements to fill screen by setting both left and right properties. 	 
+	.video-player .control.timeline { 
+		left:36px;  
+		right:248px;//right:214px;
+		background:none;
+		height:25px;
+		border-top:#2A2A2A solid 1px 
+		}
+	
+	.video-player .timeline-position {
+		float:left;
+		background-color:#B70000;
+		width:0%;
+		overflow:hidden; 
+		position:relative; top:-1px;
+		}
+		
+	.video-player .timeline-cursor {
+		float:left;
+		position:relative;
+		width:0px;height:26px;
+		background-color:#B70000;
+		}
+		
+	.video-player .timeline-cursor span {
+		display:block;
+		position:absolute; top:-6px; left:-4px;
+		width:7px; height:6px;
+		background:transparent no-repeat url(/assets/images/video/player/icons/timeline-cursor-accent_7x5.png) center top; 
+		}
+	
+	.video-player.loading .timeline-position {}
+	
+	// =:closed-=:captions
+	.video-player .closed-captions {
+		width:86px; //width:40px; 
+		right:174px; 
+		
+		span {
+			display:block;
+			float:left;
+			margin:6px 0px 5px 13px;
+			width:23px;
+			height:14px;
+			cursor:pointer;
+			
+			&.cc-ui {
+				margin-left:9px;
+				width:29px;
+				display: none;
+				cursor: auto;
+				}
+			}
+			
+		&.captions-exist {
+			span.cc { background-image:url(/assets/images/video/player/icons/closed-captions-off_23x14.png) }
+		}
+		
+		&.captions-enabled {
+			span.cc { background-image:url(/assets/images/video/player/icons/closed-captions-on_23x14.png) }
+		}
+		
+		&.captions-enabled {
+			span.cc-ui { 
+			    background-image:url(/assets/images/video/player/icons/closed-captions-ui-off_29x14.png);
+			    display: block;
+			    cursor: pointer;
+			}
+		}
+		
+		&.captions-ui-visible {
+			span.cc-ui { background-image:url(/assets/images/video/player/icons/closed-captions-ui-on_29x14.png) }
+		}
+	}	
+	    
+	/* @todo add error icon styles for when dfxp load fails */
+	.video-player .closed-captions.captions-exist.captions-enabled.captions-error {
+		background: url(/assets/images/video/player/icons/closed-captions-fail.png) no-repeat 50% 50%;
+		span.cc, span.cc-ui {
+			display: none;
+		}
+		
+	}
+	
+	//  
+	// =:title
+	// In our player, the clip titles is set on top of the position/progress bar. We needed to nest a second title element inside the position bar 
+	// because stacking it on top created so many issues with the event listener. This is in addition to .video-player-title, which is absolutely positioned, 
+	// underneath the progress bar 
+	.video-player .timeline-position .timeline-title {	
+		display:inline-block;
+		height:25px;
+		width:3000px;
+		padding-top:1px;
+		padding-left:10px;}
+	
+	//
+	// =:time-display
+	.video-player .control.time-display {
+		right:91px;
+		padding:0px 10px;
+		width:62px; 
+		color:#999999;
+		font-size:10px; }
+	
+	.video-player .control.time-display	> span {
+		display:inline-block;
+		padding-top:1px;
+		font-weight:600 }
+		
+	.ie8 .video-player .control.time-display > span { font-family: "ff-din-web-n6","ff-din-web",sans-serif; font-weight:normal }
+	
+	//
+	// =:audio, =:mute, =:volume 
+	.video-player .control.audio-mute-unmute {
+		right:67px;
+		width:16px;
+		padding:0px 4px;
+		height:26px;
+		background:#000 no-repeat url(/assets/images/video/player/icons/audio-on_11x9.png) 6px 9px;
+		cursor:pointer; }
+		
+	.video-player .control.audio-mute-unmute.muted {
+		background-image:url(/assets/images/video/player/icons/audio-off_13x9.png) }
+			
+	.video-player .control.audio-volume {
+		right:0px;
+		width:67px;
+		height:26px;
+		border-left:0;
+		cursor:pointer;}
+		
+	.video-player .control.audio-volume .audio-volume-inner {
+		display:block; 
+		position:static;
+		background:#3c3c3c repeat-x url(/assets/images/video/player/icons/audio-volume-faux-borders_7x7.png) top left;
+		width:55px;
+		height:7px;
+		margin:10px 12px 9px 0px;
+		border-width:1px 0px 1px 0px;
+	}
+	
+	.video-player .audio-volume-indicator,
+	.video-player .audio-volume-cursor {
+		position:relative;
+		background-color:#b70000;
+		cursor:pointer;
+		height:5px;
+		border:#000 solid 1px;
+		border-right:0; border-left:0;
+		width:0;
+	}
+	.video-player .audio-volume-cursor {
+		width:1px;
+		height:7px;
+		position:absolute; top:-2px; right:0px;
+	}
+	
+	//
+	// =:title
+	.video-player-title {
+		position:absolute; 
+		left:32px; right:0px; bottom:0px;
+		padding-left:14px;
+		height:25px;
+		padding-top:1px;
+		background:#000;}
+		
+	.video-player-title, .video-player .timeline-position .timeline-title {
+		font-weight:medium; 
+		font-size:10px;
+		line-height:27px;
+		color:#FFF; }
+		
+	.ie8 .video-player-title, .video-player .timeline-position .timeline-title { font-family: "ff-din-web-n6","ff-din-web",sans-serif; font-weight:normal }	
+	
+	//
+	// =:dock, =:tabs 
+	// ---------------------------------------------------------------------------------------- 	
+	.video-player-dock {
+		width:100%; 
+		position:absolute; 
+		height:32px;
+		bottom:26px;
+		background-image:url(/assets/images/lib/black-50.png);
+		overflow:hidden; }
+
+	.tabs-head {
+		height:34px; }
+		
+	.tabs-head li a {
+		line-height:10px;
+		height:10px;
+		padding-top:9px;padding-bottom:15px; 
+		cursor:pointer;}
+	
+	.tabs-head li a b {
+		display:inline-block;
+		padding-left:15px; padding-right:15px;
+		border-right:red solid 1px;
+		font-weight:normal !important }
+		
+	.ie8 .tabs-head li a b { font-family: "ff-din-web-n6","ff-din-web",sans-serif!important; font-weight:normal!important; }	
+		
+	.tabs-head.rtl li:first-child a b {
+		border-right:0; }
+	
+	// ie doesn't interpret the above selector correctly 
+	.ie8 .tabs-head.rtl li:first-child a b { 
+		border-right:0; }
+	
+	.tabs-head.rtl li a {
+		float:right; }
+	
+	.video-player .tabs-body {
+		position:relative;
+		overflow:hidden;
+		background-image:url(/assets/images/lib/black-50.png); }
+		
+	// if we ever want to kill the red borders on active tabs, we'll need some kind of a classname on the parent.. 
+	.tabs-head .tab-toggle.aktiv a {
+		background-image:url(/assets/images/lib/black-50.png); }
+	
+	.video-player .tab-body { 
+		position:relative;
+		overflow:hidden; }
+	
+	
+	//
+	// =:related videos
+	// ----------------------------------------------------------------------------------------
+	.video-player .related-videos { position:relative;}
+		
+	.related-videos-inner {
+		position:relative;
+		width:0px; /* # width:2000px; 200 * 10 videos, but this is set by javascript*/
+		height:180px;
+		border-top:#000 solid 4px;
+		overflow:hidden;
+		cursor:pointer; }
+		
+	.related-videos .video {
+		width:198px;
+		height:180px;
+		float:left;
+		border-right:#000 solid 2px;
+		background:#000 no-repeat url(/assets/images/lib/spinners/balls_000000_24x24.gif) center 44px;
+		cursor:pointer; }
+	
+	.related-videos .video .thumb img { 
+		width:198px;
+		height:111px; }
+			
+	.related-videos .video .title {
+		display:block;
+		padding:12px 14px;
+		font-size:12px;
+		line-height:14px !important;
+		text-transform:none;
+		font-weight:bold; }
+	
+	.related-videos .video:hover .title {
+		text-decoration:underline; }
+		
+	
+	//
+	// =: share
+	// ---------------------------------------------------------------------------------------- 
+	.video-player-share {
+		height:254px;
+		font-size:12px;
+		line-height:18px;
+		text-transform:none; 
+		color:#999; }
+	
+	.video-player-share h2 {
+		font-size:12px; 
+		margin-bottom:10px; 
+		font-weight:bold;
+		text-transform:uppercase;
+		color:#CCC!important; }
+	
+	.share-pane {
+		width:250px;
+		float:left;
+		border-right:#1c1c1c solid 1px;
+		width:37.5%; 
+		height:204px;
+		margin:25px 0px;}
+	
+	.share-pane > span {
+		display:block;
+		padding:0px 20px; }
+	
+	/* # need more space on ipad and smaller windows */
+	@media only screen and (max-width:1024px) { 
+		.share-pane > span {
+			padding:0px 15px; 	
+		}
+	}
+	
+	.video-player input[type=text],
+	.video-player textarea { 
+		width:100%;
+		border:0; outline:0;
+		font-size:11px;
+		line-height:11px;
+		color:#999;
+		background:#333;
+		font-family:"ff-din-web","Calibri","Arial",sans-serif;}
+	
+	/* descenders in letters (j,p,q) getting cut off in win7 FF and IE 10 */	
+	.video-player input[type=text] {
+	    .win7.ff &, .win7.ie10 & {
+	        line-height: 12px;
+	        padding-bottom: 3px;
+        }
+	}	
+	
+	.video-player a.button, .share-pane u,
+	.share-pane input.button {
+		display:inline-block;
+		padding:7px 10px 5px 10px;
+		background-color:#3a3a3a;
+		color:#FFF;
+		font-size:11px;
+		line-height:10px;
+		font-weight:bold;
+		font-family:inherit;
+		text-transform:uppercase;
+		letter-spacing:1px;
+		border:none;
+		text-decoration:none }
+
+	.video-player a.button,
+	.share-pane input.button {
+		background-image: linear-gradient(bottom, 		  	rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -o-linear-gradient(bottom, 	  	rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -moz-linear-gradient(bottom, 	  rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -webkit-linear-gradient(bottom, rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -ms-linear-gradient(bottom, 	  rgb(31,31,31) 5%, rgb(58,58,58) 85%); 
+	}
+
+	.video-player a.button:hover,  
+	.video-player a.button.over {
+		color:#999; }
+		
+	.ie .video-player .button {
+		background-image:none; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a3a3a', endColorstr='#1f1f1f', GradientType=0); }
+
+	/*
+	=:social */
+	.share-pane.social {
+		width:24%; /* # 245 @ 1024px w */ }
+		
+	/*
+	=:link */
+	.share-pane .nested-button {
+		position:relative; 
+		display:block; height:45px;}
+
+	.share-pane .nested-button b {
+		margin-right:65px; }
+
+	/* # rules for copy button and the zeroClipboard swf (zeroClipboard styles for ie are not in use since we use a native solution there) */
+	.share-pane .nested-button a, .share-pane .nested-button embed, .ie .share-pane .nested-button object { 
+		position:absolute; right:0; bottom:5px; }
+	
+	.share-pane .nested-button embed, .ie .share-pane .nested-button object { /*outline:solid orange 1px*/}
+	
+	
+	// =:email
+	.share-pane.email {
+		border-right:none; }
+		
+	.share-pane form.loading table b,
+	.share-pane form.loading table input {
+		opacity:0.6 }
+		
+	.share-pane h2 .feedback {
+		text-transform:none;
+		font-weight:normal; }
+		
+	.ie8 .share-pane h2 .feedback { font-family: "ff-din-web-n6","ff-din-web",sans-serif; font-weight:normal }	
+		
+	.share-pane.email h2 .feedback.errors {
+		color:red; }
+	
+	.share-pane table {
+		width:100%; }
+		
+	.share-pane.email td.error {
+		color:red; }
+		
+	.share-pane.email td.error b {
+		border:red solid 1px; }
+		
+	.share-pane b {
+		display:block;
+		margin-bottom:5px;
+		padding:1px 6px 1px 6px;
+		border:#333 solid 1px;
+		background:#333;
+		overflow:hidden; }
+
+	.share-pane .sender-recipient b.spacer { 
+		background:none;
+		width:1px;
+		text-indent:-100px;}
+
+	.share-pane.email a.button {
+		float:right; 
+		position:relative;}
+		
+	.share-pane .loading u.spinner {
+		text-decoration:none;
+		font-weight:normal; 
+		letter-spacing:normal;
+		padding-left:32px;
+		background:#000 no-repeat url(/assets/images/lib/spinners/balls_000000_24x24.gif) center left;
+	}
+	
+	.ie8 .share-pane .loading u.spinner { font-family: "ff-din-web-n6","ff-din-web",sans-serif; font-weight:normal }	
+	
+
+	// =:share-components (lifted from product.css)
+	@media screen and (max-width:1080px) { 
+		.video-player-share .social-sharing { 
+			height:auto;
+			margin-top:7px;
+			overflow:visible !important; }
+		.video-player-share .social-sharing .share-component { 
+			float:none;
+			margin:0 0 5px 0 !important;
+			padding:0;
+			border:0; }
+		.video-player-share .social-sharing .share-component.twitter { margin:6px 0 5px 0 !important; }
+	}
+	
+	
+	//
+	// =:about
+	// ----------------------------------------------------------------------------------------
+	.video-player-about {
+		font-size:12px;
+		text-transform:none;
+		padding:15px;
+		height:130px; } 
+	
+	//
+	// =:title
+	// ----------------------------------------------------------------------------------------
+	#video-redirect-options-wrap {
+		text-align:center }
+		
+	#video-redirect-options a {
+		display:inline-block;
+		padding:15px 25px;
+		margin-right:5px;
+		font-size:14px;
+		background:#333;
+		cursor:pointer; }
+		
+	#video-title-debugger {
+		margin:100 50px;
+		padding:50px; }
+		
+	#video-title-debugger table { 
+		margin-bottom:50px;
+		font-family:"Consolas","Courier New", monospace;
+		font-size:14px;
+		line-height:14px;
+		background:#333;}
+		
+	#video-title-debugger table th, 
+	#video-title-debugger table td {
+		padding:4px;
+		text-align:top;
+		vertical-align:top;
+		border:none}
+	
+	
+	//
+	// =:age-gate
+	// ----------------------------------------------------------------------------------------
+	.video-player-age-gate.docked {
+		top:0; height:100%; 
+		background-image:url(/assets/images/lib/black-75.png); }
+	
+	.video-player-age-gate form {
+		margin:200px auto; /* # will be vertically centered by javascript */
+		width:350px; 
+		height:150px;
+		color:#c3c3c3;
+		border:#262626 solid 1px;
+		background:#000;
+		font-size:12px;
+		text-transform:none }
+	
+	.video-player-age-gate fieldset {
+		padding:35px;
+		color:#bbbbbb;}
+		
+	.video-player-age-gate p {
+		margin-bottom:14px;
+		border:#000 solid 1px;}
+		
+	.video-player-age-gate input[type=text] {
+		width:auto;
+		display:inline-block;
+		padding:4px;
+		text-align:center;
+		height:12px; 
+		border:#333 solid 1px }
+		
+	.video-player-age-gate .errors input[type=text] {
+		border-color:red; }
+		
+	.video-player-age-gate .errors .feedback {
+		color:red }	
+		
+	.video-player-age-gate .lockout-message {
+		text-align:center;
+		padding:50px;
+		font-size:14px;
+		font-weight:bold; }
+
+	.video-player-age-gate .lockout-message .button.cancel {
+		margin-top:20px;}
+	
+	
+	//
+	// =:order banner - is this in use?
+	// ----------------------------------------------------------------------------------------
+	.video-player-inner .tab-body .order-banner { 
+		padding:12px 0px; 
+		font-size:18px;
+		strong { 
+			color:#ff0000; 
+			}
+		sup { 
+			font-size:12px; color:#999; 
+			}
+		a.learn-more { 
+			margin-left:1em; 
+			font-size:11px; 
+			}
+		img { 
+			display:inline; 
+			}
+	}
+
+	//
+	// =:ipad adjustments
+	// ----------------------------------------------------------------------------------------
+	// tweaks for ipad. For example, there are no audio controls in smart player
+	
+	// =:controls	
+	.ipad .video-player .control.timeline 	  		{ right:123px; }
+	.ipad .video-player .control.closed-captions  { right:83px; }
+	.ipad .video-player .control.time-display 		{ right:0px; }
+	
+	// =:age-gate
+	.ipad .video-player-age-gate form {
+		font-size:14px;
+		width:425px;
+		height:175px }
+
+	.ipad .video-player-age-gate fieldset {
+		padding:45px; }	
+
+	.ipad .video-player-age-gate input[type=text],
+	.ipad .video-player-age-gate .button {
+		padding:7px 14px; }
+	
+	/*
+	=:debugging, =:static mockup
+	----------------------------------------------------------------------------------------*/
+	#dummy-player { width:720px; height:480px; border:#ccc 4px solid;}
+	

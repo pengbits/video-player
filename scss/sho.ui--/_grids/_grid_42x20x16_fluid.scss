@@ -1,0 +1,178 @@
+
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site			sho.com <desktop>
+	// @file			_grid_42x20_16_fluid.scss
+	// @package			ui/grid/
+	// @author			dpaul
+	// @desc			16 column fluid grid (42x20x16) if fixed-width constraints are applied
+	// @note			inspiration taken from http://unsemantic.com/css-documentation
+	// @note			only used in sports homepage so far	
+	// @note			a lot of this can be scrapped if we are willing to forgor the FPO/helper styles
+	// ----------------------------------------------------------------------------------------*/
+
+	
+	$gutter-width : 20;
+	$column-width : 42;
+	$number-cols : 16;
+	$grid-base-width : ($gutter-width + $column-width) * $number-cols;
+	
+	.row {
+		clear:both
+		}
+
+	@mixin column {	
+		float:left;  
+		padding-left: 10px;
+	  	padding-right: 10px;
+		&.no-gutters {
+			padding:0;
+			}
+		}
+	
+	.grid-container {
+		@extend .cf;
+		@include border-box;
+		position:relative;
+		margin-left: auto;
+		margin-right: auto;
+		width:100%;
+
+		
+		&.fixed-width {
+			width:992px;
+		}
+		&.fixed-width.fpo-include-gutters {
+			width:1012px;
+		}
+	}
+
+	// column configuration
+	.grid-100,	
+	.grid-75, 	
+	.grid-66,	
+	.grid-50, 
+	.grid-33,	
+	.grid-25,
+	
+	.grid-50-xlarge,
+	.grid-25-xlarge, {
+		@include border-box;
+		@include column;
+		}
+		
+	.fpo-grid {
+		.grid-100,	
+		.grid-75, 	
+		.grid-66,	
+		.grid-50, 
+		.grid-33,	
+		.grid-25,
+		.grid-33-xlarge,
+		.grid-50-xlarge,
+		.grid-25-xlarge {
+			outline:orange solid 1px
+			}
+		.row {
+			//outline:red solid 1px;
+			}
+	}
+	
+		
+	// widths
+	.grid-100 { width:100%; } 		// 16/16
+	.grid-75  { width:75%; } 		// 12/16
+	.grid-62  { width:62.5% } 		// 10/16
+	.grid-56  { width:56.25% }		// 9/16
+	.grid-50  { width:50%; } 		// 8/16
+	.grid-37  { width:37.5% } 		// 6/16
+	.grid-31  { width:31.25%; }		// 5/16
+	.grid-25  { width:25% }			// 4/16
+	.grid-18  { width:18.75% }	 	// 3/16
+	
+	.grid-66  { width:66.6666667%;} // 8/12
+	.grid-33  { width:33.3333333%;}	// 4/12
+	
+	// quirks + exceptions
+	.include-left-gutter { 	padding-left:10px;  }
+	.include-right-gutter { padding-right:10px; }
+	.include-gutters {		padding-left: 10px; padding-right: 10px; }
+	
+	.pull-left-gutter {
+		position:relative;
+		left:-10px;
+		}
+	.pull-right-gutter {
+		position:relative;
+		right:-10px;
+		}
+	
+
+	// contextual hide/show 1/2
+	.is-visible-xlarge, 
+	.is-visible-xlarge .module { // hide child element to help js layer
+		display:none;
+		}
+
+	// breakpoints
+	@include if_size_is('xlarge') { 
+		.grid-62-xlarge 		{ width:62.5%; }
+		.grid-60-xlarge 		{ width:60%; }
+		.grid-56-xlarge			{ width:56.25% }	
+		.grid-50-xlarge 		{ width:50%; }
+		.grid-41-xlarge 		{ width:41.6666667%; }
+		.grid-37-xlarge 		{ width:37%; }
+		.grid-25-xlarge 		{ width:25%; }
+		.grid-18-xlarge  		{ width:18.75% }	 	
+		.is-visible-xlarge, 
+		.is-visible-xlarge .module 	{ display:block; }
+	}
+	
+	// support nested cols by zeroing out padding
+	.grid-parent {
+	  	padding-left: 0;
+	  	padding-right: 0;
+		}
+	
+
+	// debug styles
+	.fpo-grid {
+		background:#d3d3d3 repeat url(/assets/images/sports/FPO/grid-dark_42x20x16.png) 10px 0px;
+
+		&.fpo-include-gutters {
+			background-position:20px 0px;
+		}
+
+		.module {
+			background:url(/assets/images/FPO/yellow.gif);
+		}
+
+		.sports-schedule .module {
+			background:url(/assets/images/FPO/grey.gif);
+		}
+		.is-visible-xlarge {
+			.module {
+				background:url(/assets/images/FPO/green.gif) !important;
+			}
+		}
+	}
+
+	// debug help: display current breakpoint in nav
+	.viewport-size {
+		span {
+			width:1px !important;
+			visibility:hidden;
+			display:inline !important;
+			&.xlarge {
+				@include if_size_is('xlarge') { visibility:visible; width:auto; }
+			}
+			&.large {
+				@include if_size_is('large') { visibility:visible; width:auto; }
+			}
+			&.medium {
+				@include if_size_is('medium') { visibility:visible;  width:auto; }
+			}
+
+		}
+	}

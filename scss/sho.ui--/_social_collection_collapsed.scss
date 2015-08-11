@@ -1,0 +1,94 @@
+// 
+// CSS
+// ------------------------------------------------------------------------------------------
+// @site			sho.com <desktop>
+// @file			_ui/_social_collection_collapsed.scss
+// @author			dpaul
+// @desc			rules for social collection module (sho.social.collection.Widget)
+// @desc			this is a component for rendering a social collection, which is one or more livefyre-backed tweet-like pieces of content.
+// 
+// this was previously only used in context of series socialize page.. 
+// but now we need to open this up for use in sports events pages, handling the discrepancies w/ 2 themes:
+//
+// 		1) collapsed (series context, polling display, one item at a time)
+// 		2) expanded (sports context, static display 6 items at a time)
+//
+// 
+//	<div class="social-collection-content">
+//		<div class="social-collection-item">
+//			<div class="social-collection-item-date">
+//				12/6/2013 04:58
+//			</div>
+//		<a vocab="http://schema.org" typeof="Person" rel="nofollow" resource="acct:2208806044" data-lf-handle="" data-lf-provider="twitter" property="url" 
+// 		href="https://twitter.com/#!/Ayshakhan940" target="_blank" class="fyre-mention fyre-mention-twitter">@
+//  		<span property="name">Ayshakhan940</span></a>: 
+//  		<a vocab="http://schema.org" typeof="Person" rel="nofollow" resource="acct:284619290" data-lf-handle="" data-lf-provider="twitter" property="url" href="https://twitter.com/#!/TimGuinee" target="_blank" 
+//  			class="fyre-mention fyre-mention-twitter">
+//				@<span property="name">TimGuinee</span>
+//  		</a> 
+//  		love the acting in homeland pleasure to watch” Thanks
+//  		<img class="social-collection-item-author-avatar" src="http://pbs.twimg.com/profile_images/1600561172/image_normal.jpg">
+//			<div class="social-collection-item-author-display-name">
+//				<a href="https://twitter.com/#!/TimGuinee">Tim Guinee</a>
+//			</div>
+//		</div>
+//	</div>
+//
+// ------------------------------------------------------------------------------------------
+.social-collection.theme-collapsed 
+{
+	.social-collection-content {
+		margin-top:20px;
+		margin-bottom:20px;
+		padding:20px;
+		min-height:75px; 
+		font-family: "ff-din-web-n6","ff-din-web",sans-serif;
+		font-size:15px;
+		line-height:21px;
+		border:#1d1d1d solid 1px;
+		background:#1d1d1d;
+		color:#999;
+		}
+
+	.social-collection-item .fyre-mention {
+		color:#999;
+		}
+
+	.social-collection-content .social-collection-item {
+		position:relative;
+		overflow:hidden;
+		}
+
+	.social-collection-item:last-child {
+		margin-bottom:0px;
+		}
+
+	.social-collection-item-date,    
+	.social-collection-item-author-display-name,
+	.social-collection-item-author-display-name a {
+		font-size:12px;
+		line-height:14px;
+		color:#3E3E3E;
+		}
+
+	.social-collection-item-date {
+		margin-bottom:4px; // optically: 10px
+		}
+
+	.social-collection-item-author-avatar {
+		width:18px; height:18px;
+		position:absolute; bottom:0; left:0;
+		}
+
+	.social-collection-item-author-display-name {
+		margin-top:7px; // optically: 10px 
+		padding-left:26px;
+		height:14px;
+		}
+
+
+	.social-collection-item a.fyre-mention {
+		color:#FFFFFF;
+		font-weight:normal
+		}
+}

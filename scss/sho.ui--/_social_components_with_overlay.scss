@@ -1,0 +1,69 @@
+
+/* 
+CSS
+------------------------------------------------------------------------------------------
+@site				sho.com <desktop>
+@project            _
+@file				_socialize_components_with_overlay.scss
+@author				ncavanagh
+@desc				rules for socialize modules
+
+=:modules
+----------------------------------------------------------------------------------------*/
+.mod .socialize,
+.module.socialize,
+.secondary-dark .socialize {
+	padding-bottom:25px;	
+	
+	// =:narrow browser styles	
+	@media only screen 
+	and (max-width : 1166px) {
+		#social-share-break {
+			clear: left;
+		}
+		
+		&.align-left  #pinit-overlay { left:-32px!important; }
+		&.align-left  #getglue-overlay { left:-7px!important; }
+		&.align-left  #tumblr-overlay { left:-9px!important; }
+		&.align-left  #insta-overlay { left:-11px!important; }
+		
+	}
+	
+}
+
+.socialize-icons li { float:left; position:relative; }
+.socialize-icons li a.socialize-link { 
+	display:block;
+	margin:10px 5px 0 0;
+	height:26px;
+	width:26px;
+	text-indent:-6000px;
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_facebook_24x24.png) no-repeat; }
+
+// =:twitter
+li.socialize-twitter a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_twitter_24x24.png) no-repeat; }		
+
+// =:google plus	
+li.socialize-gplus a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_google_24x24.png) no-repeat; }		
+
+// =:instagram	
+li.socialize-insta a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_instagram_24x24.png) no-repeat; }		
+
+// =:pintrest	
+li.socialize-pinit a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_pinterest_24x24.png) no-repeat; }		
+	
+// =:youtube	
+li.socialize-youtube a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_youtube_24x24.png) no-repeat; }		
+
+// =:tumblr	
+li.socialize-tumblr a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_tumblr_24x24.png) no-repeat; }		
+	
+// =:getglue	
+li.socialize-getglue a.socialize-link { 
+	background:transparent url(/assets/images/accounts/social_connections/24x24/social_icon_tvtag_24x24.png) no-repeat; }		

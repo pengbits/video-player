@@ -1,0 +1,25 @@
+
+	// styles for in-page pagination widget
+	// previously, this was only available in context of multiview component
+	.pagination {
+		.page, 
+		.elipsis, 
+		.next, 
+		.prev {
+			display:inline-block;
+			padding:0px 3px 0px 3px;
+			cursor:pointer;
+			}
+	
+		.page.aktiv {
+			color:$base-red; 
+			}
+	
+		.prev { 
+			padding-left:10px;  background:transparent no-repeat url(/assets/images/lib/pagination/arrow-prev_5x12.png) top left; 
+			}
+	
+		.next { 
+			padding-right:10px; background:transparent no-repeat url(/assets/images/lib/pagination/arrow-next_5x12.png) top right; 
+			}
+	}

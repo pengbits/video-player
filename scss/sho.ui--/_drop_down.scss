@@ -1,0 +1,165 @@
+
+	//  
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site				sho.com <rebuild>
+	// @project			_
+	// @file				dropdown.css
+	// @type				stylesheet	
+	// @author			dpaul
+	// @todo				vendor mixin for border-radius
+	// 
+	// Rules for custom dropdown menus. These are javascript components and are built up programatically,
+	// with no in-page markup other than a simple container.
+	// There are also multi-column dropdowns, which are a way of handling longer lists of items.
+	// 
+	//    
+	//       <div class="dd-menu lunch-options" id="lunch-options-dropdown">
+	//       	<div class="dd-title"><a href="#">What's for Lunch</a></div>
+	//       		<div class="dd-content-wrap-outer">
+	//       		<div class="dd-content-wrap">
+	//       	    	<div class="dd-content">
+	//       				<ul>
+	//       				    <li><a href="#">Taco Truck</a></li>
+	//       					<li><a href="#">Falafel</a></li>
+	//       					<li><a href="#">Hing Won Xpress</a></li>
+	//       					<li><a href="#">Mee</a></li>
+	//       					.
+	//       					.
+	//       					<li><a href="#">Amish Market</a></li>	    
+	//       				</ul>
+	//       			</div>
+	//       		</div>    
+	//       	</div>
+	//       </div>
+	//	
+	// =:dropdown
+	//---------------------------------------------------------------------------------------
+	.dd-menu {
+		position:relative;
+		float:left;
+		width:150px;
+		margin-right:20px; 
+		background:#2C3739;
+		-moz-border-radius: 4px; 
+		-webkit-border-radius: 4px;  }
+		
+	.dd-menu.xwide, .dd-menu.xwide .dd-content, .dd-menu.xwide .dd-title {
+	    width:190px !important; }
+		
+	.dd-menu.xxwide, .dd-menu.xxwide .dd-content, .dd-menu.xxwide .dd-title {
+		width:250px !important; }
+	
+	.dd-menu .dd-title {
+		width: auto; }
+	
+	.dd-menu .dd-title a {
+		display:block;
+		padding:6px 10px 6px 10px;
+		height:11px;
+		font-size:11px;
+		line-height:11px;
+		background:transparent no-repeat url(/assets/images/lib/icons/dropdown-arrow-teal.png) center right }
+	
+	.dd-menu .dd-content {
+		display:none; 
+		position:absolute;
+		width:150px;
+		background:#2C3739; 
+		font-size:11px;
+		line-height:11px; }
+
+	.dd-menu.aktiv .dd-content {
+		display:block;
+		-moz-border-radius: 0px 0px 4px 4px; 
+		-webkit-border-radius: 0px 0px 4px 4px}
+	
+	.dd-menu.aktiv {
+		-moz-border-radius: 4px 4px 0px 0px; 
+		-webkit-border-radius: 4px 4px 0px 0px}
+	
+	.dd-menu.aktiv li:last-child a {	
+		-moz-border-radius: 0px 0px 4px 4px; 
+		-webkit-border-radius: 0px 0px 4px 4px}
+	
+	.dd-content li a {
+		display:block;
+		padding:6px 10px 6px 10px;
+		width:auto; }
+	
+	.dd-content li:first-child a {
+		padding-top:8px; }
+	
+	.dd-content li:last-child a {
+		border-bottom:0; }
+	
+	.dd-content li a:hover {
+		background:#263032; }
+	
+/*
+	=:xlong, =:long */
+	.dd-menu.xlong .dd-content-wrap-outer {
+		display:none;
+		padding:10px;
+		position:absolute;
+		top:-10px;
+		left:-25px;
+		width:190px;
+		background:#232323;
+		-moz-border-radius: 6px; 
+		-webkit-border-radius: 6px; 
+		background:url(/assets/images/lib/black-50.png); }
+	
+	.dd-menu.xlong .dd-content-wrap {
+		display:none;
+		height:250px;
+		overflow:auto;
+		background:#232323;
+		border:#232323 solid 10px; }
+	
+	.dd-menu.xlong.dd-menu .dd-content {
+		position:static; }
+	
+	.dd-menu.xlong .dd-content {
+		border:0 !important; }
+	
+	.dd-menu.on.xlong .dd-content-wrap-outer,
+	.dd-menu.on.xlong .dd-content-wrap {
+		display:block;  }
+	
+	/*
+	# multi-column dropdowns =:multicol
+	# ----------------------------------------------------------------------------------------*/
+	.dd-menu.dd-multi-col .dd-content { 
+		width:1024px;   /* # why is this width set to 1024px? */
+		-webkit-border-radius: 0px 4px 4px 4px;
+		        -moz-border-radius: 0px 4px 4px 4px 
+		}
+	/* specific for Order page */	
+	#order-provider-dropdown-cnt .dd-menu.x4 .dd-content {
+		width: 770px !important;
+	}	
+	
+	.dd-menu.x2 .dd-content { width:250px !important; } /* # ((120w + 10 margin) * 2) -10 */
+	.dd-menu.x3 .dd-content { width:380px !important; } /* # (130 * 3) -10 */
+	.dd-menu.x4 .dd-content { width:510px !important; } /* # (130 * 4) -10 */  /* seems like sizes have changed? */
+	.dd-menu.x5 .dd-content { width:640px !important; } /* # (130 * 5) -10 */
+	.dd-menu.x6 .dd-content { width:770px !important; } /* # (130 * 6) -10 */
+	
+	.dd-menu.dd-multi-col .dd-column {
+		float:left; 
+		width:120px;
+		margin-right:10px;
+		padding:10px 0px 15px 0px; }
+	
+	.dd-menu.dd-multi-col.dd-menu.dd-multi-col .dd-content li a {
+		padding:4px 8px; }
+	
+	.dd-menu.dd-multi-col .dd-content li a:hover {
+		background:none; }
+	
+	/* # these selectors can't be combined, or IE will choke  */
+	.dd-menu.dd-multi-col .dd-column:last-child { margin-right:0; } 
+	.ie .dd-menu.dd-multi-col .dd-column.last 	{ margin-right:0; }
+	
+	/* No surrender, No delete! */

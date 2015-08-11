@@ -1,0 +1,60 @@
+
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site				sho.com <rebuild>
+	@project			video
+	@file				video-tests.css
+	@type				stylesheet	
+	@author				dpaul
+	@desc				rules for video player tests
+	
+	/*
+	=:video
+	----------------------------------------------------------------------------------------*/
+	.video-player-tests .content { margin-top:0 }
+	.video-player-tests .inner-wrap {
+		margin:75px 50px 10px 50px;
+		width:700px;
+		height:100px;
+		text-align:center;
+		background:purple;}
+	
+	.video-player-tests .inner-wrap .left {
+		width:23%; }
+	.video-player-tests .inner-wrap .right {
+		width:75%; }
+		
+	#play-video-button {
+		margin-top:25px;
+		display:inline-block; 
+		width:200px; 
+		height:50px; 
+		text-align:center;
+		line-height:50px;
+		font-size:24px;
+		border:#222 solid 2px;
+		background-image: linear-gradient(bottom, 		  rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -o-linear-gradient(bottom, 	  rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -moz-linear-gradient(bottom, 	  rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -webkit-linear-gradient(bottom, rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+		background-image: -ms-linear-gradient(bottom, 	  rgb(31,31,31) 5%, rgb(58,58,58) 85%) 
+	}
+		
+	#dummy-player {
+		border:#666 solid 2px;
+		width:720px;
+		height:480px;
+		margin:60px 0px 0px 0px; }
+	
+	#dummy-player p {
+		padding:15px; padding-bottom:5px; }
+		
+	#dummy-player.loading {
+		background:#000 no-repeat url(/assets/images/lib/spinners/balls_000000_24x24.gif) 18px 18px; }
+		
+	#dummy-player.loading object {
+		visibility:hidden;
+		/*display:none; <-- this breaks the API!!!! */ }
+		
+	/* No surrender, No delete! */

@@ -1,0 +1,120 @@
+
+	// 
+	// CSS
+	// --------------------------------------------------------------------------------------------
+	// @site			sho.com <desktop>
+	// @project			lib
+	// @file			_multiview.css
+	// @author			dpaul
+	// @modified		04.14.14
+	// @desc			rules for multiview component
+	// 
+	// 1) toggle view rules
+	// 2) controls
+	// --------------------------------------------------------------------------------------------   
+	.multi-view {
+		overflow:hidden;
+		position:relative;
+		
+		.head, 
+		.footer {
+			padding:5px 20px;
+			height:22px; 
+			}	
+
+		// margins always applied to list view, but only applied to images view
+		// if explicitly told to do so:
+		.is-list, &.has-margins .is-images {
+			padding:0px 20px
+			}
+		}
+	
+	// .cf on the controls above this div is not working in firefox 
+	// https://issues.sho.com/browse/SITE-6890
+	.multi-view-body {
+		clear:both;			
+		}
+		
+	.multi-view.is-images .footer {
+		padding-top:0px;
+		}
+		
+	.multi-view-state {
+		position:absolute;
+		left:-1000px;
+		visibility:hidden;
+		}
+		
+	.multi-view-state.aktiv {
+		position:static;
+		left:0;
+		visibility:visible;
+		}
+	
+
+	// controls, lifted from schedules gallery css
+	.gallery-control {
+		overflow:hidden; 
+		height:17px; 
+		}
+
+	.gallery-control.view-toggle {
+		margin-left:1px;
+		margin-top:6px; }
+
+	.gallery-control.pagination {
+		margin-top:8px;
+		margin-right:4px;
+		text-align:right; }
+
+	.gallery-control.view-toggle .view-mode {
+		display:inline-block; 
+		margin-right:15px;
+		width:17px;
+		height:11px;
+		background-image:url(/assets/images/lib/icons/multi-view-mode_17x11.png);
+		text-indent:-1000px; overflow:hidden;
+		cursor:pointer; }
+
+	// slightly different implementation than in old js gallery - parent is tagged w/ setting
+               .view-toggle .view-mode.list	 	 	{ background-position:-17px -11px;}
+   	           .view-toggle .view-mode.images 		{ background-position:0px -11px; }
+	.is-list   .view-toggle .view-mode.list 		{ background-position:-17px 0px }
+	.is-images .view-toggle .view-mode.images 		{ background-position:0px 0px; }
+	
+	
+	// in-page pagination
+	.pagination .page, .pagination .elipsis, .pagination .next, .pagination .prev {
+		display:inline-block;
+		padding:0px 3px 0px 3px;
+		cursor:pointer;
+		}
+		
+	.pagination .page.aktiv {
+		color:#FF0000; 
+		}
+		
+	.pagination .prev { 
+		padding-left:10px; background:transparent no-repeat url(/assets/images/lib/pagination/arrow-prev_5x12.png) top left; 
+		}
+		
+	.pagination .next { 
+		padding-right:10px; background:transparent no-repeat url(/assets/images/lib/pagination/arrow-next_5x12.png) top right; 
+		}
+		
+	
+	// align section header w/ pagination, only used in /sho/sports/galleries so far
+	.section-header {
+		padding-top:7px;
+		padding-bottom: 8px;
+		margin-bottom: 5px;
+		font-size: 15px;
+		line-height: 19px;
+		text-transform: uppercase;		
+		}
+	
+	.wtw-sho-anytime {
+		display:block;
+		margin-top:10px;
+	
+		}

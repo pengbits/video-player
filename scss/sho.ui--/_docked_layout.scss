@@ -1,0 +1,81 @@
+	
+	// docked_layout.css
+	// set up the full-width, docked-navigation  layout that is used almost everywhere
+	//
+	// this will handle the basics, but in some cases we may have to set a javascript listener to manage the container,
+	// dynamically applying pixel values to margin-top, margin-bottom and height ... 
+	
+	// todo: don't assume these are global
+
+	.container {
+		width: 100%;
+		}
+
+	.full-bleed .container {
+		height: 100%;
+		overflow: hidden;
+		}
+	
+	// .full-bleed is the trigger for the 'no-scrollbars' experience used in the homepage(s)
+	html.full-bleed, 
+	html.full-bleed body {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		}
+	
+	@include mq($from:sm)
+	{
+		body.has-max-width .content {
+			max-width: 1600px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		
+		body.has-min-width .content {
+			min-width: 800px;		
+		}
+	}
+	
+	.content {
+		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
+		min-height:600px;
+		.has-nav-primary & 	 { margin-top:60px;  }
+		.has-nav-secondary & { margin-top:100px; }
+		.has-nav-tertiary &  { margin-top:130px; }
+		.full-bleed & {	
+			max-width: 100%;
+			min-width: 100%;
+			height: 100%;
+		}
+	}
+
+	.docked, .sticky {
+		position: fixed;
+		left: 0;
+		right: 0;
+		//width: 100%;
+		overflow: hidden;
+        // styles below hope to resolve position:fixed issues in chrome
+        -webkit-backface-visibility: hidden; 
+        -webkit-transform: translateZ(0);
+		}
+        
+    body.has-undocked-header-and-primary {
+        .content {
+            margin-top: 0;
+        }
+        
+        .nav-primary, .nav-secondary, .nav-header {
+            position: relative;
+            top: 0;
+        }
+    }
+    
+    // taller footer requires no height restriction for full-bleedish sho home page
+    .sho-home .content {
+        min-height: 0;
+    }
+	

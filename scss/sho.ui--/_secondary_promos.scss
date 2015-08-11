@@ -1,0 +1,95 @@
+	
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site				sho.com <desktop>
+	@project            _
+	@file				sceondary_promos.scss
+	@author				ncavanagh
+	@desc				rules for base modules and secondary promos used in homepages
+	
+	
+	=:modules
+	----------------------------------------------------------------------------------------*/
+	/* This class can be added to pages that do not have a ways to watch section. Added a height for table so that the footer is docked if there is no ways to watch section on the about series site */
+	body.about .table {
+    height: 225px;
+    	}
+
+	.mod {
+		position:relative;
+		display:table-cell;
+		vertical-align:top; 
+		width:25%;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e0e0e', endColorstr='#1a1a1a', GradientType=1);
+		background: -ms-linear-gradient(top right, #0e0e0e,  #1A1A1A);
+		/* but no diagonal */
+		background: -webkit-gradient(linear, right top, left top, from(#1a1a1a), to(#0e0e0e)); /* for webkit browsers */
+		background: -moz-linear-gradient(45deg,  #0e0e0e,  #1a1a1a); /* for firefox 3.6+ */	}
+
+	.mod-body {
+		position:relative; 
+		padding:22px; }
+
+	.mod h2 { 
+		padding-bottom:5px; 
+		font-size:15px;
+		// add explicit line-height to override timber
+		line-height:14px;
+		color:#eee; }
+
+	.mod p {
+		color:#999; 
+		line-height:16px; }
+	
+	.mod.thumb img {
+		float:left;
+		width:35%;
+		margin-top:1px;	}
+
+	.mod.thumb p { padding-left:16px; margin-left:35%; }
+	.mod.mod25 { width:25%; }
+	.mod.mod50 { width:50%; }
+	.mod.mod33 { width:33%; }
+	.mod.thumb.mod33 img { width:30%; }
+	.mod.thumb.mod33 p { margin-left:30%; }
+	.mod.thumb.mod33 ul { margin-top:5px; }
+	.mod.thumb.mod33 li { margin-bottom:28px; }
+	.mod.thumb.mod33 p a, .mod.thumb.mod33 p .headline { 
+		display:block; 
+		padding-bottom:3px;
+		font-size:13px;
+		color: #EEEEEE;	}
+	
+	.mod.thumb.mod33 p.cta { padding-top:3px; }
+	.mod.thumb.mod33 p.cta a { 
+		display:inline;
+		padding:0;
+		font-size:11px; }
+
+
+	/*
+	=:secondary-promos	
+	----------------------------------------------------------------------------------------*/
+	.mod.secondary-promos .td { width:49%; }
+	.mod.secondary-promos h2 { 
+		margin-left:35%; 
+		padding:0 24px 2px 15px;
+		line-height:18px; }
+
+	.mod.secondary-promos h2.mod-header { margin:0; padding:0 0 5px 0; }
+	.mod.secondary-promos p { padding-right:24px; }
+	.mod.secondary-promos .alternate h2, .mod.secondary-promos .alternate p { padding-right:2px; }
+	.mod.secondary-promos .promo { padding-bottom:25px; }
+	.mod.mod50.secondary-promos .promo { width:49%; }
+
+	.mod.mod-videos ul { margin-top:6px; }
+	.mod.mod-videos li { margin-bottom:22px; }
+	.mod.mod-videos p { line-height:14px; }
+	.mod.mod-videos p b { display:block; padding-bottom:1px; font-weight:bold; }
+
+	.mod .promo-img a { position:relative; display:block; }
+	.mod .promo-img img.play-icon {
+		float:none;
+		position:absolute;
+		top:0; left:0; }

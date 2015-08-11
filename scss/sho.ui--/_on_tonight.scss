@@ -1,0 +1,129 @@
+
+	// 
+	// on_tonight.scss
+	// ----------------------------------------------------------------------------------------
+	// The docked schedule ticker. The markup for this component is basically a linearized definition list, 
+	// with overflow set to hidden to mask the trailing items from view. The javascript component that decorates this
+	// is responsible for panning the schedule content in and out of view.
+	// 
+	// on the ipad, it is more of an actual 'ticker', automatically flicking through the items on an interval rather
+	// than responding to user input.
+	
+	.on-tonight {
+		position:relative;
+		height: 47px;
+		font-size: 15px;
+		line-height: 14px;
+		background: #222222;
+		font-weight: 600;
+		overflow:hidden;
+		&.docked {
+			bottom: 20px;
+			}
+		}
+
+	.on-tonight b,
+	.on-tonight dl dt,
+	.on-tonight dl dd a,
+	.on-tonight p.schedule-error {
+		display: block;
+		float: left;
+		padding: 16px 0px 17px 0px;
+		height: 14px;
+		}
+
+	.on-tonight b {
+		color: #01CbC9;
+		}
+
+	.on-tonight dl dt {
+		color: #FFFFFF;
+		padding-right: 7px;
+		}
+
+	.on-tonight dl dd a {
+		color: #818181;
+		padding-right: 20px;
+		}
+
+	.on-tonight b.on-tonight-title {
+		position: absolute;
+		width: 160px;
+		background: #222222;
+		top: 0px;
+		left: 20px;
+		font-size: 16px;
+		font-weight: 600;
+		}
+
+	.ie8 .on-tonight b.on-tonight-title {
+		font-family: "ff-din-web-n6","ff-din-web",sans-serif;
+		font-weight: normal;
+		}
+
+		/* # IE is rendering the fonts with bold every time and it's inflating the width */
+	.ie .on-tonight b.on-tonight-title {
+		width: 180px;
+		}
+
+	.on-tonight dl {
+		position: relative;
+		left: 0px;
+		width: 6000px;
+		/* this is reset to actual value by js */
+		cursor: pointer;
+		}
+
+	.on-tonight-inner {
+		margin-right: 165px;
+		margin-left: 180px;
+		overflow: hidden;
+		}
+
+	.ie .on-tonight-inner {
+		margin-left: 200px;
+		}
+
+	.on-tonight a.schedule-link {
+		display: block;
+		width: 74px;
+		height: 14px;
+		position: absolute;
+		right: 40px;
+		top: 16px;
+		text-transform: uppercase;
+		}
+
+	.on-tonight p.schedule-error {
+		padding-left: 20px;
+		color: #999;
+		}
+
+	// set the active page context for the ticker's schedule link when in schedules section
+	.schedules .on-tonight a.schedule-link {
+		color: red;
+		}
+
+	// min-width alternate layout. =:media-queries, =:min-width */
+	@media screen and (max-width: 1306px) {
+		.on-tonight.docked { 
+			b,dt,dd a {
+				padding-top: 12px;
+			}
+			
+			a.schedule-link {
+				top: 12px;
+			}
+		}
+	}
+	
+	// ipad specific styles.. not in use while mobile site is served to ipad
+	// .ipad .on-tonight b, .ipad .on-tonight dl dt, .ipad .on-tonight dl dd a {
+	// 	padding-top: 12px;
+	// 	}
+    // 
+	// .ipad .on-tonight a.schedule-link {
+	// 	top: 12px;
+	// 	}
+	
+	// No Surrender, No Delete! 

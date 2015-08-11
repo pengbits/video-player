@@ -1,0 +1,78 @@
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site			sho.com <desktop>
+	// @file			_ui/_social_collection_expanded.scss
+	// @author			dpaul
+	// @desc			rules for social collection module (sho.social.collection.Widget)
+	// @desc			this is a component for rendering a social collection, which is one or more livefyre-backed tweet-like pieces of content.
+	// 
+	// this was previously only used in context of series socialize page.. 
+	// but now we need to open this up for use in sports events pages, handling the discrepancies w/ 2 themes:
+	// 1) collapsed (series context, polling display, one item at a time)
+	// 2) expanded (sports context, static display 6 items at a time)
+	//
+	// ------------------------------------------------------------------------------------------
+
+	.social-collection.theme-expanded {
+		padding:15px;
+		background:#181818; // overriden w/ checkerboard in sports
+			
+		.social-collection-header {
+			@extend .cf;
+			.social-platforms {
+				width:135px; // assumes 3 platforms at 36x36 each	
+				img {
+					float:left;
+					margin-right:9px;	// margin-bottom:9px needed if there are more than 3
+					}
+				}
+		
+			.social-hashtags {
+				position:relative; top:-3px; //top:10px;
+				margin-left:26px;
+				width:129px;
+				text-align:right;
+				}
+			}
+		
+		.social-collection-content {
+			margin-top:14px; // visually:20px;
+			}
+
+		.social-collection-item {
+			position:relative;
+			padding:10px 15px 15px 63px; // visually:15px all aroud
+			border-top:#000 solid 1px;
+			color:#818181;
+			overflow: hidden;
+			line-height:16px;
+				
+			a {
+				color:#737373 !important;
+				text-decoration:underline;
+				}
+			&:last-child {
+				padding-bottom:0;
+				}
+			}
+		
+		.social-collection-item-author-avatar {
+			position:absolute;
+			top:15px; 
+			left:0;
+			}
+			
+		.social-collection-item-author-display-name,
+		.social-collection-item-date {
+			}
+			
+		.social-collection-item-author-display-name a {
+			color:#FFF !important;
+			text-decoration:none;
+			font-weight:600;
+			}
+			
+		.social-collection-item-date {}
+	}
+

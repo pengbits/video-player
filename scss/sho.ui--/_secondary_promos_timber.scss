@@ -1,0 +1,67 @@
+	
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site			sho.com <desktop>
+	@project        _
+	@file			secondary_promos.timber.scss
+	@author			dpaul
+	@desc			rolling secondary promos onto the timber grid
+	----------------------------------------------------------------------------------------*/
+	
+	// previously, these styles were set in mod-body
+	.secondary-dark {	
+		background:#1a1a1a;
+		padding-top:20px; 
+		padding-bottom:20px;
+		
+		// apply  background gradients to outer container
+		@include mq($from:sm) {
+			background: -webkit-gradient(linear,right top,left bottom,from(#1a1a1a),to(#0e0e0e));
+		}
+		
+		h2,h4 {
+			color:#EEE;
+		}
+		p,li {
+			color:#999;
+		}
+		
+		.ways-to-watch ul
+		{
+			margin-bottom:1em;
+
+		 	li {
+				padding: 2px 0 1px;
+			}
+		}
+	}
+		
+	// apply vintage font styles for series secondary context
+	.secondary-dark.preserve-type 
+	{
+		h2,h4 {
+			@include font(15,1.2);
+			color:#EEE;
+		}
+	
+		p,li {
+			color:#999;
+		}
+		p {
+			@include font(12,1.33333333);
+		}
+		li {
+			@include font(12,1.166666667);
+		}
+	
+		.media__body a
+		{
+			display:inline;
+		}
+		
+		
+	}
+	
+
+	

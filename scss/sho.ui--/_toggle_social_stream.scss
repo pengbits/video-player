@@ -1,0 +1,267 @@
+
+/* 
+CSS
+------------------------------------------------------------------------------------------
+@site				sho.com <desktop>
+@project			series
+@file				_toggle-social-stream.css
+@modified			08.20.13
+@author				ncavanagh
+@desc				livefyre overrides for toggle module social stream
+@note				is dependent on _livefyre.scss for some basics
+
+----------------------------------------------------------------------------------------*/
+.toggle-social-stream {
+    
+    .tss-description {
+        padding:20px; 
+        color:#888;
+		line-height: 16px;
+		
+		.tss-social-links {
+			padding-top:14px;
+			
+			a {
+				text-transform:uppercase;
+			}
+		}
+    }
+    
+    .fyre-stream-sort,
+    .fyre-live-container,
+	.fyre-embed-button,
+	.fyre-format-button,
+	.fyre-follow-button,
+	.fyre-mention-button,
+	.fyre-comment-from-text,
+	.fyre-comment-reply,
+	.fyre-comment-actions a {
+        display:none !important;
+    }
+	
+	.fyre-editor-toolbar .goog-toolbar .fyre-share-button {
+		
+		width:84px !important;
+		border-right:0 !important;
+			
+		div.fyre-button-right-inner-box {
+			
+			padding:0 18px !important;
+			background-position:58px 14px !important;
+			
+			label.fyre-share-counter {
+				display:block !important;
+				left:4px;
+				top:10px;
+			}
+		}
+	}
+	
+    
+    #livefyre-comments {
+        padding:0 16px;
+        border-top:2px solid #292929;
+		overflow-x: hidden;
+		
+        a {
+            color:#888 !important;
+            font-weight:normal;
+        }
+		
+		a.fyre-comment-username {
+			color:white !important;
+		}
+        
+		.fyre-comment a {
+			text-decoration:underline !important;
+		}
+		
+        .fyre-user-loggedout {
+            margin:6px 0 0 0 !important;
+        }
+		
+		.fyre-user-loggedin {
+			left:-10px;
+
+		}
+		
+		a.fyre-user-profile-link {
+			margin-top:3px !important;
+		}
+		
+		.fyre-user-level {
+			display:inline-block;
+			margin-right:8px;
+			height:16px;
+			width:16px;
+			text-align:left;
+			text-indent:-6000px;
+		}
+	
+		.fyre-user-level.fyre-user-twitter {
+			display:inline-block;
+			background: url('/assets/images/socialize/modules/stream/twitter-icon_16x16.png') no-repeat left bottom;
+		}
+		
+		.fyre-user-level.fyre-user-facebook {
+			display:inline-block;
+			background: url('/assets/images/socialize/modules/stream/fb-icon_16x16.png') no-repeat left bottom;
+		}
+
+		.fyre-box-wrapper span.fyre-user-drop  {
+			color:#fff !important;
+		}
+	
+		.fyre-box-wrapper {
+			
+			top:0 !important;
+			border:0 !important;
+			text-align:right !important;
+		
+			.fyre-box-list li a:hover {
+				color:#000 !important;	
+			}	
+		}
+        
+        .fyre-editor {
+            min-width:0;
+        }
+
+        .fyre-format-button {
+            border:0;
+        }
+        
+        .fyre-share-button {
+            border-left:1px solid #2B2B2B !important;
+        }
+        
+        .fyre-share-container a {
+            color:#666 !important; 
+        }
+        
+        .fyre-comment {
+			
+			a.fyre-comment-edit {
+				display:none;
+			}
+			
+			p {
+            	color:#818181;
+            	font-size:12px !important;
+			}
+        }
+        
+        .fyre-comment-head, .fyre-comment-user {
+            position:relative;
+            bottom:0;
+            left:0; 
+        }
+        
+         .fyre-comment-head {
+            top:-2px;
+            
+            .fyre-comment-from-text {
+                margin-left:0;
+				color:#fff !important;
+            }
+            
+            .fyre-twitter-handle {
+                display:inline;
+            }   
+			
+			.fyre-comment-username {
+				display:block;
+				padding-bottom:4px;
+			}
+			
+			.fyre-moderator { 
+				display:none;
+			}
+        }
+        
+        .fyre-comment-user {
+            
+            float:left;
+            margin-right:10px;
+            
+            img.fyre-user-avatar {
+                height:50px !important;
+                width:50px !important;
+				border-radius:0px !important;
+				-webkit-border-radius:0px !important;
+            }
+        }
+        
+        .fyre-comment-divider {
+
+            margin:25px 0;
+            
+            div.fyre-comment-divider {
+                margin:0;
+                background:#2b2b2b;
+            }
+        }
+        
+        .fyre-comment-body, .fyre-comment-footer {
+            margin:14px 0 0 60px;
+        }
+		
+		.fyre-comment-footer {
+			text-align:left;
+		}
+		
+		.fyre .fyre-comment-footer {			
+			margin-top: 20px !important;
+		}
+        
+        .fyre-comment-count {
+            color:#505050 !important;
+        }
+		
+		time.fyre-comment-date {
+			padding:0 !important;
+			color:#666 !important;
+			font-size:12px !important;
+		}
+		
+		.fyre-comment-like {
+
+			top:0;
+			line-height:12px;
+			
+			.fyre-comment-like-btn {
+				font-size:12px;
+			}
+			a:hover { 
+				text-decoration: underline;
+			}
+		}
+		
+		.fyre-comment-actions {
+			position:relative;
+			float:none !important;
+			display:inline;
+			padding-right:12px;
+			font-size:12px;
+			text-align:left; 
+		}
+		
+		.fyre-comment-actions a>span {
+			display:none;
+		}
+		
+		.fyre-comment-actions a.fyre-flag-link {
+			display:inline !important;
+			overflow:auto;
+			width:auto;
+			padding-right:12px;
+			font-size:12px !important;
+			border-right:1px solid #888;
+		}
+		
+		.fyre-stream-more {
+			margin-bottom:20px;
+		}
+    }
+
+}

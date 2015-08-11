@@ -1,0 +1,41 @@
+	
+	// shared rules and tiny widgets used in both contact sheet and photo image
+	// social
+	.photo-gallery-footer .photo-share,
+	.contact-sheet-share {
+		width:222px;
+		height:64px;
+		display:block;
+		position:absolute;
+		
+		.social-sharing {
+			padding-top:0;
+			margin-top:12px;
+			}
+			
+		.social-sharing .share-component {
+			border:none;
+			padding:0;
+			margin-left:15px;
+			&.first {
+				margin-left:0;
+				}
+			}
+		}
+	
+	.contact-sheet-share {
+		top:15px;
+		right:20px;
+		
+		}
+	
+	.photo-share {
+		top:16px;
+		right:23px;
+		padding-top:15px;
+		padding-left:18px;
+		background:#1f1f1f;
+		color:#FFF;
+		line-height:14px;
+	
+		}

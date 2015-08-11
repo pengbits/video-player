@@ -1,0 +1,140 @@
+
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site 			sho.com <desktop>
+	@project 		social sharing
+	@file 			_sharing.scss
+	@type  			stylesheet 
+	@author			dpaul
+	@modified		08.07.14
+	@desc  			rules for social sharing (and share via email) modal.
+	@desc			used in schedules:ondemand and order page
+	@note  			relies on some styles from video-player.css at the moment
+	----------------------------------------------------------------------------------------*/
+	.email-share {
+		padding:0px 42px;
+		font-size:12px;
+		line-height:14px;
+		
+		.email-share-h1 {
+			padding-top:25px;
+			padding-bottom:15px;
+			margin-bottom:10px;
+			font-size:15px;
+			line-height:16.875px;
+			text-transform:uppercase;
+			border-bottom: 1px solid #282828;
+			em {
+				color:#FF0000
+			}
+		}
+		
+		.email-share-h2, h2 {
+			padding:4px 0px;
+			font-size:13px;
+			em.confirm { 
+			    color: #01cbc9;
+			    }				    			
+			}
+			
+		.social-sharing {
+			margin-top:8px !important; // must override margin-top:20 coming from generic rule here
+			}				// 8px+5px = 13px visual margin
+			
+			
+		// @todo - move into some kind of decoupled this-or-that micro utility, not tied to sharing
+		.or-divider {
+		//,.or-divider.order-divider-horiz
+			margin-top:9px;
+			height:30px;
+			background-repeat:no-repeat;
+			background-color:transparent;
+			background-image:url(/assets/images/order/or-graphic_490x30.png);
+			}
+			
+		label {
+			color: #bfbfbf;
+			display:inline-block;
+			height:16px;
+			}	
+		input[type=text], textarea { 
+			width:100%;
+			border:0; outline:0;
+			font-size:11px;
+			//line-height:11px;
+			color:#999;
+			background:#333;
+			font-family:"ff-din-web","Calibri","Arial",sans-serif;
+		}
+		.button {
+			display:inline-block;
+			padding:7px 10px 5px 10px;
+			background-color:#3a3a3a;
+			color:#FFF;
+			font-size:11px;
+			line-height:10px;
+			font-weight:bold;
+			font-family:inherit;
+			text-transform:uppercase;
+			letter-spacing:1px;
+			border:none;
+			background-image: -o-linear-gradient(bottom, 	  	rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+			background-image: -moz-linear-gradient(bottom, 	    rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+			background-image: -webkit-linear-gradient(bottom,   rgb(31,31,31) 5%, rgb(58,58,58) 85%);
+			background-image: -ms-linear-gradient(bottom, 	    rgb(31,31,31) 5%, rgb(58,58,58) 85%); 
+			outline:0 !important;// solid 1px;
+		}
+		.button:hover {
+			color:#999;
+			text-decoration:none; 
+			}
+	
+		form.loading table b,
+		form.loading table input {
+			opacity:0.6 
+			}
+		
+		table {
+			width:100%; 
+			}
+		
+		td {
+			padding:4px 0px;
+			}
+
+		b {
+			display:block;
+			margin-bottom:5px;
+			padding:1px 6px 1px 6px;
+			border:#333 solid 1px;
+			background:#333;
+			overflow:hidden; }
+
+		.sender-recipient b.spacer { 
+			background:none;
+			width:1px;
+			text-indent:-100px;}
+
+		// =:error, =:states
+		.error label, 
+		.email-share-h2.errors {
+			color:red !important;
+			em.confirm { 
+			    color: inherit;
+			    } 
+			}
+		.error b {
+			border: red solid 1px !important; 
+			}
+
+		.loading u.spinner {
+			text-decoration:none;
+			font-weight:normal; 
+			letter-spacing:normal;
+			padding-left:32px;
+			background:#000 no-repeat url(/assets/images/lib/spinners/balls_000000_24x24.gif) center left;
+		}
+	
+	}
+	

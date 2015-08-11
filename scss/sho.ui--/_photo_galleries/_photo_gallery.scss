@@ -1,0 +1,95 @@
+
+	// 
+	// _photo_gallery.scss.
+	// ----------------------------------------------------------------------------------------
+	// rules for new photo gallery (in-page approach)
+	body.photo-gallery.photo {
+		background:#252525
+		}
+		
+	.photo-gallery-header {
+		position:fixed;
+		top:0; left:0px; right:0px;
+		padding:13px 18px 21px 18px;
+		height:16px;
+		font-size:22px;
+		line-height:22px;
+		text-transform:uppercase;
+		background:#000;
+		
+		.closer {
+			position:fixed; 
+			top:17px;right:18px;
+			display:block;
+			width:18px;
+			height:17px;
+			background-image:url(/assets/images/sports/lib/closer_18x17.png);
+			text-indent:-1000px; 
+			overflow:hidden
+			}
+		
+		}
+	
+	.photo-gallery img {
+		margin:0px auto; // reset by javascript
+	}
+	
+	.photo-gallery-image {
+		.next-prev {
+			display:block;
+			width:100px; //50%;
+			position:absolute;
+			top:50px;
+			bottom:138px;
+			text-indent:-10000px;
+			overflow:hidden;
+			}
+		.next-prev.prev {
+			left:0;
+			background:transparent no-repeat url(/assets/images/sports/photo_gallery/photo-gallery-prev_68x68.png) left center;
+			}
+		.next-prev.next {
+			right:0;
+			background:transparent no-repeat url(/assets/images/sports/photo_gallery/photo-gallery-next_68x68.png) right center;
+			}
+		}
+		
+	.photo-gallery-footer {
+		position:fixed; 
+		bottom:0;left:0px; right:0px;
+		height:138px;
+		background-color:#292929;
+		
+		font-size:15px;
+		line-height:23px;
+		
+		span {
+			display:block
+			}
+			
+		.photo-position {
+			position:absolute;
+			top:23px;
+			left:21px;
+			color:#FFF;
+			em { color:#999; }
+			}
+			
+		.photo-desc {
+			// only allows for 3 lines max, regardless of width, so at narrow widths text is truncated.
+			margin:23px 357px 23px 70px;
+			height:68px;
+			color:#999;
+			text-overflow:ellipsis;
+			overflow:hidden;
+			}
+			
+		.legal {
+			padding-left:25px;
+			height:28px;
+			font-size:11px;
+			line-height:28px;
+			background:#000;
+			}
+			
+		}

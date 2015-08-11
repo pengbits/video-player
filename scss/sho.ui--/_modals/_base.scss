@@ -1,0 +1,139 @@
+
+	// /
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site					sho.com <rebuild>
+	// @project					modals
+	// @file					modals/base.css
+	// @type					stylesheet	
+	// @author					dpaul
+	// Rules for modals.
+	//   
+    //      <div class="modal-shader"></div>
+    //      <div class="modal-outer [classNames]">
+    //            <div class="modal-inner">
+    //                <div class="modal-tbar">
+    //                    <div class="modal-title">[title]</div>
+    //                    <div class="modal-pagination">[optional pagination]</div>
+    //                    <div class="modal-closer">&nbsp;</div>
+    //                </div>
+    //                <div class="modal-content">
+    //                    [content]
+    //                </div>
+    //            </div>
+    //        </div>
+    //   
+	// -----------------------------------------------------------------------------------------
+
+	.modal-outer, .modal-inner, .modal-content, .modal-tbar, .modal-bbar { 
+		font-size:11px;
+		line-height:13px;
+		}
+
+	.modal-shader {
+		position:fixed; top:0; left:0;
+		width:100%;
+		height:100%;
+		background-image: url(/assets/images/lib/black-75.png); }
+
+	.ipad.ios-4 .modal-shader {
+		position:absolute; top:0; left:0;
+		}	
+
+	.modal-outer { 	
+		background:#161616;
+		border:none;
+		position:fixed; top:20px; left:20px; z-index:999999; 
+		padding-bottom:7px
+		}
+		
+	.modal-inner {
+		position:relative;
+		background:#333; 
+		}
+	
+	.modal-tbar {
+		position:relative;
+		height:32px;
+		padding-right:70px;
+		background-image:url(/assets/images/lib/modals/modal-tbar-gradient_32x32.png); 
+		overflow:hidden;
+		color:#FFF;}
+
+	.modal-tbar .modal-title, .modal-tbar .modal-pagination  {		
+		padding:10px;
+		height:12px;
+		font-size:11px;
+		line-height:14px;
+		text-transform: uppercase; }
+	
+	.modal-title .modal-back-link {
+	    position:absolute;
+	    left:5px;
+	    top:0;
+		display:block;
+		height:32px;
+		width:65px;
+		text-indent:-6000px;
+		cursor:pointer;
+		background:transparent no-repeat url(/assets/images/lib/modals/modal-tbar-back_65x32.png) top left; }
+
+	.modal-closer {
+		width:70px;
+		height:32px; 
+		position:absolute; top:0; right:0;
+		background:transparent no-repeat url(/assets/images/lib/modals/modal-tbar-closer_70x32.png) top left;
+		cursor:pointer;}
+
+	.modal-content {
+		padding:0;
+		border:0;
+		overflow:auto;
+		// border: 1px solid #202423; //pop up modals will have consistant border
+		// -moz-box-sizing: border-box;
+		// -webkit-box-sizing: border-box;
+		// box-sizing:border-box;
+		}
+	
+	.modal-outer.portal .modal-content, .modal-outer.share .hideOverflow {
+		overflow:hidden;}
+
+	// 
+	// =:themes (handle the discrepancies in old vs new modal style)
+	// metro - newer style modal, black content w/ 1px light grey border around content area
+	// default - old style modal, grey content w/ 7px grey slice under content area
+	// ------------------------------------------------------------------------------------------
+	.modal-outer.modal-theme-default {}
+	.modal-outer.modal-theme-metro, 
+	.modal-outer.modal-theme-metro .modal-inner {
+		padding-bottom:0;
+		background:#000;
+		}
+	
+	.modal-outer.modal-theme-metro .modal-content p {
+		padding:20px; padding-bottom:0;
+		font-size:12px; 
+		line-height:15px; 
+		color:#999;
+		}
+
+	.modal-outer.modal-theme-metro  {
+		border:#333 solid 1px; border-top:0;
+		}
+
+
+	// 
+	// flash-messages
+	// Flash messages are used to store a bit of feedback for the user that can persists across multiple requests. For example, if there is an error submitting a form,
+	// the backend can set a flash message *Whoops! Something went wrong with your entry*, and throw to a different url, without loosing a chance
+	// to bubble up the messaging. Originally envisioned as a docked strip above the navigation, they are now implemented as modals:
+	// ----------------------------------------------------------------------------------------
+	.modal-outer.flash-message .modal-content {}
+	.modal-outer.flash-message .modal-content p {}
+	// no custom styles needed here, see 'modal-theme-metro' above
+	
+	
+
+
+
+	/* No surrender, No delete */

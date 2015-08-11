@@ -1,0 +1,48 @@
+
+	/*
+	JS
+	--------------------------------------------------------------------------------------------
+	@site				sho.com <desktop>
+	@project			lib
+	@file				_togglebar.css
+	@author				ncavanagh
+	@modified			01.20.14
+	@desc				rules for toggle bar component
+	@note               in use in sports social stream
+	------------------------------------------------------------------------------------------*/    
+	.sho-togglebar-basic {
+	    
+	    padding:0;
+	    text-transform:uppercase;
+	    color:#888;
+	    
+	    li {
+	        float:left;
+	        padding:16px 0;
+	        width:95px;
+	        background:#1a1a1a;
+	        border-right:1px solid #292929;
+	        text-align:center;
+	        
+	        a:hover {
+	            text-decoration:none;
+				cursor: pointer;
+	        }
+	    }
+	    
+	    li.aktiv {
+	        color:#fff;
+	        background:#000;
+	
+			a:hover{
+				cursor: default;
+			}
+	    }
+	    
+	    li:last-child {
+	        border:0;
+	    }
+	    
+	    
+	}
+	

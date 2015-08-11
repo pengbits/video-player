@@ -1,0 +1,98 @@
+
+		// 
+		// CSS
+		// ------------------------------------------------------------------------------------------
+		// @site			sho.com <desktop>
+		// @file			sho.scss
+		// @author			dpaul
+		// @modified		01.31.14
+		// @desc			this file is the basis of our build proccess
+		// ------------------------------------------------------------------------------------------
+		
+		// base
+		// ------------------------------------------------------------------------------------------
+		// foundation, un-classed elements
+		@import "sho/base/_reset";
+		@import "sho/base/_clearfix";
+		@import "sho/base/_elements";
+		@import "sho/base/_images";
+		@import "sho/base/_lists";
+		@import "sho/base/_typography";
+		@import "sho/base/_elements";
+		
+		// timber - shared resources
+		// ------------------------------------------------------------------------------------------
+        @import "../../timber/lib/scss/variables.scss";
+
+		
+		// modules - mixins, vars and patterns (not style defintions, they don't output css when compiled)
+		// ------------------------------------------------------------------------------------------
+		@import "sho/modules/_colors";
+		@import "sho/modules/_breakpoints";
+		@import "sho/modules/_font_weights";
+		@import "sho/modules/_mixins";
+		@import "sho/modules/_utils";
+		@import "sho/modules/_inline_list";
+		@import "sho/modules/_left_right";
+		@import "sho/modules/_raquos_and_carats";
+		@import "sho/modules/_small_etpt";
+		@import "sho/modules/_faux_tables";
+		@import "sho/modules/_animation";
+		
+		// ui - rules for components
+		// ------------------------------------------------------------------------------------------
+		@import "sho/ui/_on_tonight";
+		@import "sho/ui/_in_the_store";
+		@import "sho/ui/_nested_schedule";
+		@import "sho/ui/_docked_layout";
+		@import "sho/ui/_navigation";
+		@import "sho/ui/_carousel";
+		@import "sho/ui/_carousel_remix";
+		@import "sho/ui/_drop_down";
+		@import "sho/ui/_modals";
+		@import "sho/ui/_pagination";
+		@import "sho/ui/_secondary_promos";
+		@import "sho/ui/_secondary_promos_timber";		// hello... what's this? ;-p
+		
+		@import "sho/ui/_video_player";		
+		@import "sho/ui/_seeit_reminder";
+		@import "sho/ui/_social_components_with_overlay.scss";
+		@import "sho/ui/_social_sharing";
+		@import "sho/ui/_social_signon_box";
+		@import "sho/ui/_social_collection_collapsed";
+		@import "sho/ui/_social_collection_expanded";
+		@import "sho/ui/_social_stream_livefyre";
+		@import "sho/ui/_speed_bump";
+		@import "sho/ui/_notifications";
+		@import "sho/ui/_grids";
+		@import "sho/ui/_togglebar";
+		@import "sho/ui/_photo_galleries";
+		@import "sho/ui/_media_galleri";
+		@import "sho/ui/_media_galleri_list_view";
+		@import "sho/ui/_multiview";
+		@import "sho/ui/_toggle_social_stream";
+		@import "sho/ui/_email_signup_widget";
+		
+		
+		// partials - rules for larger blocks that are maybe not as reuseable as components
+		// ------------------------------------------------------------------------------------------
+		@import "sho/partials/_video";
+		@import "sho/partials/_accounts";
+		@import "sho/partials/_forums";
+		@import "sho/partials/_search";
+		@import "sho/partials/_sports";
+		@import "sho/partials/_schedules";
+		@import "sho/partials/_movies";
+		@import "sho/partials/_comedy_and_reality_docs";
+    	@import "sho/partials/_search";
+		@import "sho/partials/_anytime";
+		@import "sho/partials/_order";
+		
+		@import "sho/partials/_about";
+		
+		// util - misc utilities
+		// ------------------------------------------------------------------------------------------
+		@import "sho/util/_tracking_pixels";
+		@import "sho/util/_scaffolding";
+		@import "sho/util/_depths";
+		

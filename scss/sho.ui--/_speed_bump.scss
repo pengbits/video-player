@@ -1,0 +1,65 @@
+		
+		// 
+		// speedbump banner
+		// ----------------------------------------------------------------------------------------
+		// a kind of 'upper-third' banner for desktop pages that are not mobile optimized,
+		// shown when viewed on a mobile device. */
+	.docked.speedbump-banner {
+		top: 0;
+		left: 0;
+		right: 0;
+		background: #000;
+		width: 100%;
+		min-height: 120px;
+		height: 140px;
+		border-bottom: 1px solid #222222;
+		}
+
+	.speedbump-banner-message {
+		width: 79%;
+		height: 100%;
+		padding: 2% 2% 2% 4%;
+		font-size: 32px;
+		/*was 32px 24*/
+		line-height: 42px;
+		/*was 42px 35*/
+		font-weight: 600;
+		text-transform: none;
+		border-right: 1px solid #cccccc;
+		float: left;
+		white-space: nowrap;
+		}
+
+	.iphone .speedbump-banner-message {
+		font-size: 2.5em;
+		line-height: 1.2em;
+		}
+
+	.speedbump-banner-message b {
+		display: inline-block;
+		color: #FF0000;
+		font-size: 32px;
+		}
+
+	.speedbump-banner-message p {
+		padding: 0;
+		margin: 0;
+		}
+
+	.speedbump-banner-closer {
+		float: right;
+		text-align: center;
+		width: 14%;
+		height: 100%;
+		position: relative;
+		}
+
+	.speedbump-banner-closer em {
+		position: absolute;
+		top: 50%;
+		left: 30%;
+		font-size: 7em;
+		font-weight: bold;
+		}
+
+		/* No surrender, No delete! */

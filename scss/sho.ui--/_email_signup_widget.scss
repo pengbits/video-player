@@ -1,0 +1,368 @@
+
+	//  
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site			sho.com <common>
+	// @project			email signup 
+	// @file			email_signup_widget.scss
+	// @type			stylesheet	
+	// @author			dpaul
+	// @date			01.13.15
+	// @desc			styles for global email signup component.
+	// @note			see https://issues.sho.com/browse/SITE-9718, https://wiki.sho.com/display/SS/Simple+Email+Subscribe
+	//---------------------------------------------------------------------------------------
+	// Contents
+	// Body of the form (Includes title,labels and signup button)
+	// Inputs in the form
+	// Selects in the form
+	// Checkbox and Checkterms in the form
+	// Error state styles in the form
+	
+	
+	
+	$email-signup-top-title:#eeeeee;
+	$email-signup-label:#999999;
+	$email-signup-input-bgrd:#434242;
+	$email-signup-input-text:#999;
+	$email-signup-input-placeholder:#999;
+	$email-signup-body-text:#a8a8a8;
+	$email-signup-terms-text:#666666;
+	$email-signup-error-text:#e70000;
+	$email-signup-error-border:#83000e;
+	$email-signup-btn-text:#fff;
+	$email-signup-btn-border:#262626;
+	$email-signup-btn-bg:#1f1f1f;
+	$email-signup-top-title-mobile:#cccccc;
+	$email-signup-btn-bg-mobile:#394649;
+	
+
+	.email-signup-widget {
+
+//-------- -------------------------------body of the form---------------------------------------------------------------------------
+	
+		.email-signup-widget-line {
+		    border-top: 1px solid #262626;
+		    width: 100%;
+		    position: absolute;
+		    left: 0px;
+		    @include mq($until: md) {
+	    		display:none;
+				}
+			}
+		
+		.email-signup-widget__load-mask {
+			background:transparent no-repeat url(/assets/images/lib/spinners/balls_transparent_48x48.gif) center center;
+			height:375px;
+			} 
+		
+  		.email-signup-widget-inner {
+  			@include border-box;
+			overflow:hidden;
+			min-height:375px;
+			margin-top:0px;
+			padding:20px 14px;
+			
+			// We can't use media queries here, but mobile platform needs different paddings and max-widths then the desktop, 
+			// regardless of viewport size - in order to match legacy context. 
+			// We're using the helper classnames provided by javascript layer to unset mobile properties for desktop
+			.desktop & {
+				min-height:0px;
+				margin-top:30px;
+				width:185px;
+				padding:0;
+				}
+			}
+
+			  		
+		.title {
+			padding-top: 30px;
+			@include font(15,1.5);
+			color:$email-signup-top-title;
+		    @include mq($until: md) {
+		    	font-size:18px;
+		    	padding-top:0px;
+   		   		}
+			}	
+			
+		.btn {
+			clear: both;
+			display: block;
+			padding: 5px 20px 5px;
+			background: $email-signup-btn-bg url(/assets/images/accounts/bg_button.jpg) 0 0 repeat-x;
+			border:1px solid $email-signup-btn-border;
+			text-align: center;
+			text-transform:uppercase;
+			color:$email-signup-btn-text;
+			cursor: pointer;
+			font-size:11px;
+			font-weight:600;
+			margin-top: 10px;
+			@include mq($until: md) {
+				width: 100%;
+				height: 50px;
+				margin-top:20px;
+				-webkit-appearance:none;
+		    	background: $email-signup-btn-bg-mobile;
+				border: none;
+				border-radius: 0;
+				outline: none;
+				font-size: 18px;
+				font-weight:400;
+				
+   		   		}
+			}
+		
+		.label {
+			display:block;
+			padding-bottom:7px;
+			color:$email-signup-label;
+			@include font(12,1.5);
+			@include mq($until: md) {
+				padding-top:0px;
+		    	font-size:16px;
+		     	color:$email-signup-top-title-mobile;
+   		   		}
+			}	
+			
+		.label-top-spacer {
+			margin-top:15px;
+			@include mq($until: md) {
+				margin-top:25px;
+   		   		}
+		 
+			}
+
+//---------------------------------------Inputs in the form---------------------------------------------------------------------------		
+		.input-box {
+			@include border-box;
+			height:25px;
+			margin-bottom:15px;
+			background-color:$email-signup-input-bgrd;
+			border: solid 1px #171717;
+			-webkit-appearance: none;
+			-webkit-border-radius:0;
+    		border-radius: 0;
+			color:$email-signup-input-text;
+			@include mq($until: md) {
+				height:40px;
+				font-size:16px;
+				line-height: 20px;
+				}
+			/* IE placeholder only style */   
+            &:-ms-input-placeholder {                        
+                color: #808080;
+                }	
+			}
+		
+		.input-box-email {
+			 width:99%;
+			//width:175px;
+			@include border-box;
+			padding-left:8px;
+			text-align:left;
+			@include mq($until: md) {
+				width:100%;
+				padding:0px 0px 0px 10px;
+				-webkit-appearance:none;
+				}
+			}	
+			
+		::-webkit-input-placeholder	{
+			color:$email-signup-input-placeholder;
+			text-align:center;
+			font-size:12px;
+			margin-left:8px;
+			@include mq($until: md) {
+				font-size:16px;
+				
+			 	}
+			}
+		
+		input.input-box-email::-webkit-input-placeholder {
+			color:$email-signup-input-placeholder;
+			text-align:left;
+			}
+		
+			
+		input.input-box::-moz-placeholder  {color:$email-signup-input-placeholder}
+		input.input-box:-ms-input-placeholder {color:$email-signup-input-placeholder}
+		
+		input:focus { 
+		    outline:none;
+		    border-color:#575757;
+		    // box-shadow:0 0 10px #575757;
+		}
+			
+//---------------------------------------Selects in the form---------------------------------------------------------------------------	
+		.email-signup-dob-wrapper {
+		 	@include mq($until: md) {
+				width:100%;
+	   		   	}
+			}   
+		
+		.dob-select-wrapper {
+		    float: left;
+		    width: 31%;
+		    overflow:hidden;
+			}
+			
+		.dob-select {
+			@include border-box;
+			@include prefixed('appearance', none);
+			@include prefixed('border-radius', 0);
+		    width:100%;
+		    height:24px;
+		    margin-bottom: 15px;
+		    padding-left:8px;
+			border: solid 1px #171717;
+		    outline:none;
+		    text-overflow: ''; //Firefox hack
+ 			text-indent: 0.01px; //firefox hack
+			// background-size:14px 7px;
+			// background:#434242 no-repeat url(../svg/icons/select-arrow_14x7.svg) right center;
+			background-image: url(/assets/images/accounts/mobile/select_arrow.png);
+			background-color:#434242;
+			background-repeat: no-repeat;
+			background-position: 85% 50%;
+		    font-size:12px;
+		    color:$email-signup-input-placeholder;
+	    		 @include mq($until: md) {
+			 	height: 40px;
+			 	padding-left:10px;
+				font-size:16px;
+	   		   	}
+		   }
+
+		select.dob-select::-ms-expand {
+			   display: none;
+			}
+
+		select.dob-select:focus {
+				outline:none;
+				border:1px solid #575757;
+				}
+				
+		select.dob-select:active {
+				outline:none;
+				}
+
+		.dob-select-middle {
+			 	margin-left:3%;
+				margin-right:3%;	
+			   	@include mq($until: md) {
+					margin-left:3.5%;
+				 	margin-right:3.5%;
+				 	}
+			 	}
+		
+//---------------------------------------Checkbox and Checkterms in the form---------------------------------------------------------------------------	
+		
+		.checkterms-wrapper {
+			display:block;
+			position:relative;
+			padding-bottom:15px;
+			padding-left:27px;
+			clear:both;
+			
+			@include mq($until: md) {
+				padding:20px 0 0px 44px;
+			 	}
+			}
+		
+		.check {
+			display:block;
+			position:absolute;
+			top:3px;
+			left:0px;
+			@include box(12);
+			background-size:12px 12px;	
+			
+			// use svgs instead of sprite-sheet so we can handle all states and scale up for mobile
+			background-image: url(../svg/modules/email_signup/checkbox-off_24x24.svg);
+			
+			&.checked { 
+				background-image: url(../svg/modules/email_signup/checkbox-on_24x24.svg);
+				}
+			&.has-error { 
+				background-image: url(../svg/modules/email_signup/checkbox-error_24x24.svg); 	
+				}
+			&.has-error.checked { 
+				background-image: url(../svg/modules/email_signup/checkbox-error-on_24x24.svg); 	
+				}
+			
+			// ... mobile context needs something chunkier 
+			@include mq($until:md) {
+				top:21px;
+				left:0;
+				@include box(24);
+				
+				background-image: url(../svg/modules/email_signup/checkbox-off_24x24.svg);
+				background-size:24px 24px;
+				}
+			}
+			
+		.check-box {
+			display: none;
+			-webkit-appearance:none;
+			}
+			
+
+		
+		.terms {
+			display:block;
+			color:$email-signup-terms-text;
+			font-size:11px;
+			@include mq($until: md) {
+				display:inline-block;
+				vertical-align:middle;
+				width:100%;
+				padding-left:0;
+				font-size:14px;
+                
+                    br { 
+                        display: none; 
+                    }
+			 	}
+			}
+		
+		.terms a {
+			color:$email-signup-terms-text;
+			text-decoration:underline;		
+			}
+			
+		.body {
+			display:block;
+			//width:145px;
+			@include font(12,1.25);
+			color:$email-signup-body-text;
+			margin-top: 5px;
+			@include mq($until: md) {
+				margin-top: 15px;
+				font-size:15px ;
+				}
+			}
+
+//---------------------------------------Error state styles in the form---------------------------------------------------------------------------	
+		
+		.error-msg {
+			padding-top:7px;
+			padding-bottom:7px;
+			color:$email-signup-error-text !important;
+			font-weight:600;
+			font-size:12px;
+			@include mq($until: md) {
+				font-weight:400;
+				font-size:16px;
+		     	color:$email-signup-top-title-mobile;
+				}
+			}
+			
+		.error {
+			color:$email-signup-error-text !important;
+			}
+	 	.error-border {
+	 		border: 1px solid $email-signup-error-border !important;
+			}
+	 	  }
+
+		

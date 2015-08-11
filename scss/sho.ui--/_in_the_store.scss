@@ -1,0 +1,46 @@
+
+	// 
+	// _in_the_store.scss
+	// ----------------------------------------------------------------------------------------
+	// shop module, lifted from series/lib
+	.in-the-store {
+	
+	    h2 {    		
+	        margin:8px 0; 
+			font-size:15px;
+		}
+
+		.store-items {
+			.strikethrough {
+		        text-decoration:line-through; }
+
+		    .sale-price {
+		        color:#cc0000; }  
+       
+		    .store-link {
+				position:relative;
+				top:-11px;
+				margin-bottom:28px !important;
+		        text-transform:uppercase; }
+       
+		    li {  
+		 		padding-right:20px;
+		        margin-bottom:24px;
+				}
+       
+		    li img {
+		        float:left;
+		        width:40%; }
+       
+		    li p {   
+		        margin-left:40%;
+		        padding-left:10px; 
+		        color:#999; }
+       
+		    li p a {  
+		        display:block;
+		        margin-bottom:6px; 
+			}
+		}
+		
+	}

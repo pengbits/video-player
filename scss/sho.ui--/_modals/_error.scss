@@ -1,0 +1,14 @@
+	
+
+	/*
+	# Errors =:errors
+	# ----------------------------------------------------------------------------------------*/
+	.modal-outer.error .modal-inner{
+		border:red solid 1px; }
+	
+	.modal-outer.error .modal-tbar {
+		background:red; }
+	
+	.modal-outer.error .modal-content p {
+		font-size:14px; line-height:18px; padding:10px;
+	}

@@ -1,0 +1,138 @@
+
+	//
+	// order
+	// order page modal was globally acessible at one point, but now we only use in-page version
+	// consider returning this to order/css ?
+	
+	.modal .content {margin-top:0px!important;}
+	//  this margin-top attr feels like it might break some stuff! 
+	.order-modal 
+	{
+		padding:10px 6px;
+		width: 795px;
+
+		h3 {
+			font-size: 16px;
+			padding: 23px 0px 4px 0px;
+		}
+
+		p {
+			padding-bottom: 1px;
+			font-size: 14px;
+			color: #aaa;
+		}
+
+		img {
+			float: left;
+			padding: 5px 5px 10px 0px;
+		}
+
+		.labels {
+			padding: 0px !important;
+			position: relative;
+			top: -29px;
+		}
+		.learn-more {
+			height: 20px;
+			width: 768px;
+		}
+
+		.learn-more h2 {
+			float: left;
+			font-size: 20px;
+			padding-top: 3px;
+		}
+
+		.learn-more p {
+			float: left;
+			font-size: 11px;
+			padding-top: 3px;
+			padding-left: 10px;
+		}
+
+		.learn-more img {
+			padding: 3px 1px 0 0;
+		}
+
+		.learn-more .share {
+			position: relative;
+			top: 3px;
+		}
+
+		.learn-more .plus {
+			position: relative;
+			top: 3px;
+		}
+
+		.modal-icon {
+			padding: 1px 1px 0 0!important;
+		}
+		.modal-dd {
+			left: 0px;
+			top: -15px;
+		}
+		.divider {
+			float: left;
+			width: 770px;
+			height: 1px;
+			border-bottom: 1px solid #1f1f1f;
+			margin: 10px 0px 10px 0px;
+		}
+		#category-promos {
+			height: 110px;
+		}
+
+		.order-info {
+			width: 325px;
+			height: 140px;
+			float: left;
+			padding-right: 57px;
+		}
+
+		.order-info h4 {
+			font-size: 13px;
+			color: #ffffff;
+		}
+
+		.order-info p {
+			font-size: 12px;
+			color: #aaaaaa;
+		}
+
+		.raquo {
+			color: #ff0000;
+			font-size: 21px;
+			padding-right: 3px;
+			position: relative;
+			top: 2px;
+		}
+
+		.arrow {
+			padding: 5px 0px 10px 0;
+		}
+
+		.share {
+			position: relative;
+			top: 4px;
+		}
+
+		#order-provider {
+			height: 100px;
+			width: 750px;
+		}
+
+		.order-provider-col {
+			width: 325px;
+			float: left;
+		}
+
+		#phone-number img {
+			float: left;
+		}
+
+		#phone-number h3 {
+			position: relative;
+			top: 11px;
+			left: 23px;
+		}
+	}

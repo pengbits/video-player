@@ -1,0 +1,38 @@
+
+	// /* 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site					sho.com <common>
+	// @project				accounts
+	// @file					social_signon_box.css
+	// @modified			07.03.13
+	// @author				dmccleod
+	// @desc					rules for social signon component
+  // 
+	// ----------------------------------------------------------------------------------- */
+
+	.desktop #socialSignOnBox {
+		top: -5px;
+		}
+
+	#socialSignOnBox {
+		position: relative;
+		top: -11px;	
+		min-height: 56px;
+		}
+
+	#socialSignOnBox li {
+		display: inline;
+		padding-right: 10px;
+		}
+
+	#socialSignOnBox li a img {
+		width: 36px;
+		height: 36px;
+		padding: 15px 0;
+		display: inline;	
+		}
+
+	#socialSignOnBox li a {
+		cursor: pointer;
+		}

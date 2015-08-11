@@ -1,0 +1,26 @@
+	
+	/*
+	# Developer Tools / Build Information  =:build
+	# ----------------------------------------------------------------------------------------*/
+	.modal-outer.developer-tools dl {
+		margin:5px 10px; 
+		font-size:12px; 
+		line-height:14px;
+		font-family:"Consolas","Courier New",monospace;}
+	
+	.modal-outer.developer-tools dt,
+	.modal-outer.developer-tools dd {
+		padding:6px 8px;
+		height:14px; 
+		overflow:hidden; }
+
+	.modal-outer.developer-tools span {
+		display:inline-block;
+		margin-right:8px; }
+
+	.modal-outer.developer-tools dt {
+	 	margin-top:8px;
+		border-bottom:#232323 solid 1px;}
+
+	.modal-outer.developer-tools .build-platform span {
+	    cursor:pointer; }

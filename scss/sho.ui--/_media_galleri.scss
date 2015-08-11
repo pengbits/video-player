@@ -1,0 +1,328 @@
+
+	// _media_galleri.scss
+	// an attempt to normalize the various css 'galleries' we employ around the site
+	// the media gallery is a responsive grid of thumbnails, which can link to any kind of content
+	// intentionally mispelling to avoid collisions!
+	//
+	// 1) define breakpoints
+	// 2) create a mix-in for generating the grid dimensions for a cell/tile against any given selector
+	// 3) write rules for the wrapper
+	// 4) use helper classname to handle divergent themes (has-titlebar has-sentencecase etc are configurable in the tiles layer)
+	
+	$galleri-margin : 4px;
+	$galleri-margin-inner : ($galleri-margin / 2);
+	
+	$galleri-landscape : (
+		"small"  "(max-width:1100px)" "33.3333333%" 3,
+		"medium" "(min-width:1101px) and (max-width:1550px)" "25%" 4,
+		"large"  "(min-width:1551px)" "20%" 5
+	);
+	
+	$galleri-portrait : (
+		"small"  "(max-width:1100px)" "16.6666667%" 6,
+		"medium" "(min-width:1101px) and (max-width:1550px)" "12.5%" 8,
+		"large"  "(min-width:1551px)" "10%" 10
+	);
+	
+	
+	@mixin galleri_widths($definitions)
+	{
+		@each $breakpoint in $definitions 
+		{
+			$name : nth($breakpoint,1);
+	        $declaration: nth($breakpoint, 2);
+			$cell-width: nth($breakpoint, 3);
+			$units : nth($breakpoint, 4);
+			@media only screen and #{$declaration}
+			{
+				// set width
+				width : #{$cell-width};
+				
+				// tag gallery item with an element containing the number of units
+				.metadata {
+				
+					// this is the property that the js layer looks at
+					top:#{$units * 1px};
+					// these is just to ensure that style.top is populated
+					position:absolute;
+				
+				}
+			}
+		}
+	}
+	
+	
+	.galleri-wrap {
+		padding-top:$galleri-margin-inner;
+		padding-bottom:$galleri-margin-inner;
+		width:100%;
+        min-width: 800px;
+		overflow:hidden;
+		}
+	
+	.galleri {
+		@extend .cf;
+		background:#000;
+		width:100.5%; 		// cheat content width out of container to hide the right-most margin ...
+	
+	@media only screen and (min-width:1600px) {
+		& { width:100%; }	// ... but cap at a 100% when we encounter the max-width breakpoint as it creates problems.
+		}	
+		
+		left:-#{$galleri-margin};
+		//top:-#{$galleri-margin};
+		
+		.item {
+			@include border-box;
+			padding:$galleri-margin-inner;
+			position:relative;
+			float:left;
+			
+			img {
+				width:100%;
+				height:auto;
+				}	
+				
+			// rollovers have transitions and are shown on hover,
+			// overlay pops on and off, must be activated by clicking on [i] button.
+			.item-rollover,
+			.item-overlay {
+				@include four-corners;
+				background-color: rgba(0,0,0,0.9);
+				color:#AAAAAA;
+				}
+				
+			.item-rollover {
+				opacity:0;
+			   	@include vendor(transition, all 0.5s ease-in-out);
+				}
+				
+			.item-overlay {
+				display:none;
+				//background:green;
+				p { padding: 26px 15px 15px 15px; }
+				}
+			
+			.divider { 
+				height:2px;
+				margin:0px 16px 9px 16px;
+				border-bottom:1px dotted #aaa; 
+				}
+				
+			p {
+				padding:0px 16px;
+				line-height:16px;
+				}
+			
+			p.title-full {
+				display:block;
+				padding-top:14px;
+				padding-bottom:0px;
+				color:#fff !important;
+				text-transform:uppercase;
+				}
+				
+			p.desc-short {
+				display:none;
+				}
+			.options {
+				position:absolute;
+				bottom:7px;
+				}
+				
+			.options a {	
+				display:block;
+				margin:0px 16px;
+				line-height:16px;
+				text-transform:uppercase;
+				&.watch-video {
+					@include has-play-media;
+					// override y-pos because original icon was cut at slightly different height
+					background-position:0px 2px;
+					}
+				&.learn-more {
+					@include has-see-all-disclosure;
+					background-position:0px 4px;
+					}
+			
+				}
+			
+			.photo-count {
+				position:absolute;
+				top:50%;
+				margin-top:-6px;
+				line-height:10px;
+				height:10px;
+				width:100%;
+				text-align:center;
+				span {
+					display:inline-block;
+					padding-left:20px;
+					background:transparent no-repeat url(/assets/images/lib/icons/camera_12x9.png) 0px 0px;
+					}
+				
+				}
+				
+			
+			} // END .item
+			
+		.item:hover .item-rollover {
+			-ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		   filter: alpha(opacity=100);
+		   opacity: 1;
+			}
+		
+		.item-titlebar {
+			display:block;
+			padding:6px 11px;
+			font-size:12px;
+			line-height:15px;
+			// height:39px; // 48px overall, not worrying about really long titles
+			color:#F1F1F1;
+			background-color:$galleri-title;
+			text-transform:uppercase; em {text-transform:none;}
+			}
+			
+		.featured .item-titlebar {
+			background-color:$galleri-title-featured;
+			}	
+			
+		} // END .galleri
+		
+	.galleri-section-title {
+		padding-left:20px;
+		padding-bottom:3px;
+		h2 {
+			font-size:13px;
+			text-transform:capitalize;
+			color:#eee;
+			}
+		p {
+			padding-top: 3px;
+			font-size: 12px;
+			color:#999;
+			}
+		}
+		
+	.fights .galleri-section-title {
+		padding:14px 0 14px 20px;
+		margin:0;
+		background:#1c1c1c;
+		h2 {
+			font-size:14px;
+			text-transform:uppercase;
+			color:#fff;
+			}
+		}
+	
+	// handle overlays ([i] button)
+	.has-overlay .item-titlebar {
+		position:relative;
+		padding-right:36px;
+		.more-info {
+			position:absolute; 
+			top:7px; 
+			right:6px;
+			width:14px;
+			text-align: center;
+			padding: 0 5px;
+			font-size: 14px;
+			font-family: 'Times New Roman', serif;
+			color:#FFF;
+			cursor:pointer;
+			&:hover {
+				text-decoration:underline;
+				}
+			}
+		}
+	
+	// video icon hovers require an extra nested element and use css background to paint image source under the icon.
+	.galleri .watch-video {
+		u {
+			display:block;
+			background-size:cover;
+			}
+		
+		img:hover {
+			background:transparent no-repeat url(/assets/images/series/lib/icons/play-video_45x45.png) center center;
+			}
+		}
+	
+	// the only instance of sentence case in titlebar so far is video gallery, so use this condition to change color as well...
+	.sentence-case-in-title .item-titlebar {
+		color:#b7b7b7;
+		text-transform:none; 
+		}
+
+	// when title-wrapping is disabled (as with nested ctas), the titlebar can't grow in height	
+	.title-no-wrap .item-titlebar {
+		overflow:hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		height:15px;
+		}
+	
+	// handle title wrapping, mostly with css this time ,(although actual row markup is inserted with js)
+	.galleri.title-wrap {
+		
+		.item-titlebar {
+			margin-bottom: -99999px;
+			padding-bottom: 99999px;
+			line-height:18px;
+			
+			// use span or anchor to restore the bottom-padding that's lost w/ the infinite margin approach
+			span, a {
+				display:block;
+				padding-bottom:2px;
+				}
+			}
+		
+		.galleri-row {
+			@extend .cf;
+			margin-bottom:$galleri-margin-inner;
+			overflow:hidden;
+			}
+		}
+		
+	// config option to handle disparity between older schedules-era line heights and the look and feel of sports galleries
+	.galleri.title-wrap.compressed-line-height-in-title {
+		.item-titlebar {
+			line-height:14px;
+			}
+		}
+	
+	// certain galleries have rollovers that should not hide the titlebar, which we handle by pulling up the bottom value,
+	// although it seems like this approach wouldn't work with any kind of title-wrap, where the titlebar has a variable height.
+	.galleri.title-visible-in-rollover {
+		.item-rollover {
+			bottom:29px;
+		}
+	}
+	
+	// set different cell-widths at predetermined breakpoints	
+	.galleri.format-portrait .item,
+	.galleri.format-mixed .item.portrait {
+		@include galleri_widths($galleri-portrait);
+		}
+	
+	.galleri.format-landscape .item,
+	.galleri.format-mixed .item.landscape {
+		@include galleri_widths($galleri-landscape);
+		}
+	
+	// styles for landscape items that need to span the width of 2 portraits plus margin, in mixed collections
+	.galleri.format-mixed .item.landscape > a {
+		overflow:hidden;
+		display:block
+		}
+		
+	// handle variable-length description hide/show
+	@media screen and (max-width:800px) { 
+		.galleri .item-rollover p.desc-medium { display:none; }
+		.galleri .item-rollover p.desc-short  { display:block; }
+	}
+	
+	// mesage for empty collections
+	.galleri p.is-empty {
+		color:#FFF;
+	}

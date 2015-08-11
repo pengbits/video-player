@@ -1,0 +1,56 @@
+
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site				sho.com <mobile>
+	@project			video
+	@file				video.mobile.css
+	@type				stylesheet	
+	@author				ncavanagh
+	@desc				css for video mobile
+
+	/*
+	=:video
+	----------------------------------------------------------------------------------------*/
+	.video-portal .nav-primary {
+	    background-color:#87adad; }
+	    
+	.video-portal .nav-primary-global ul li a {
+        color:black; }
+        
+    .video-portal .nav-primary ul li a.aktiv, 
+    .video-portal .nav-primary .nav-menu.aktiv ul li a {
+        background-color: #74a8aa; }
+	
+    .video-portal.video-portal-series .nav-primary li a#series,
+    .video-portal.video-portal-movies .nav-primary li a#movies,
+    .video-portal.video-portal-full-episodes .nav-primary li a#full-episodes,
+    .video-portal.video-portal-comedy .nav-primary li a#comedy, 
+    .video-portal.video-portal-sports .nav-primary li a#sports,
+    .video-portal.video-portal-reality-docs .nav-primary li a#reality-docs { 	
+        color:#f11706; }
+        
+    .video-portal .content {
+        background-color:black; }
+        
+    .video-portal .super-select {
+        clear:both; }
+        
+    .video-portal p.episode-description {
+        padding-top:0;
+        background-color:black; }
+        
+ 	.video-portal .video-gallery {
+        padding-bottom:0; }
+        
+    .video-portal-series .content, .video-portal-sports .content {
+        padding-top:1em; }
+        
+    .video-portal-series .video-gallery {
+        padding-bottom:1.5em; }
+        
+    .video-portal-full-episodes .content p {
+        padding-bottom:0; }
+        
+	.video-portal-full-episodes .sampler-legal {
+        padding-bottom:20px; }

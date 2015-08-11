@@ -1,0 +1,22 @@
+	
+	/*
+	# Confirmation Modals =:confirm
+	# these styles were recently changed to match a tighter look found in the social connections page,
+	# we are treating them as the univesal modal styles to use going forward.
+	# ----------------------------------------------------------------------------------------*/
+	.modal-outer.confirm .modal-content p.confirm-message {
+		padding:30px 20px; padding-bottom:0;
+		}
+
+	.modal-outer.confirm .modal-content p.confirm-buttons {
+		padding:23px 20px 0px 20px;
+		}
+	
+	.modal-outer.confirm .modal-content .button {
+		margin-right:5px;
+		padding:6px 20px 5px 20px;
+		height:8px;
+		font-weight:600;
+		font-size:11px;
+		line-height:8px;
+		}

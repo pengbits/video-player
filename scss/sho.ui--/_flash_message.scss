@@ -1,0 +1,27 @@
+
+	/* 
+	CSS
+	------------------------------------------------------------------------------------------
+	@site			sho.com <mobile>
+	@file			flash_message.css
+	@type			stylesheet	
+	@author			dmccleod
+	#
+	#				rules for mobile flash message
+	----------------------------------------------------------------------------------------*/
+
+	#flash-message {
+		background-color: #1a1a1a;
+		padding: 15px;
+		border-bottom: 1px solid #333;
+	}
+	
+	#flash-message #flash-message-closer {
+		float: right;
+		text-transform: uppercase;
+		font-size: .89em;
+		padding-top: 2px;
+	}
+	
+    /* hide until we figure out production cache issues 
+	#flash-message { display:none;} */

@@ -1,0 +1,605 @@
+
+	// /* 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site				sho.com <rebuild>
+	// @project				series
+	// @file				livefyre.css
+	// @modified			08.20.13
+	// @author				mlamoureaux
+	// @desc				Styles for the overhauled socialize page.
+	// @note				moved ie9 hacks inline.
+    // 
+	// ---------------------------------------------------------------------------------------- */
+
+	// reset fonts to our default 
+	.fyre-comment-article, .fyre-comment-stream, .fyre-stream-stats span {
+		font-family: "ff-din-web","Calibri","Arial",sans-serif !important;
+	}
+	.fyre-comment-stream {
+		margin-top: 0 !important;
+	}
+	.fyre .fyre-comment p {
+		font-size: 15px !important;
+	}
+	.fyre .fyre-stream-stats, .fyre .fyre-stream-livecount {
+		font: regular 12px/20px "ff-din-web","Calibri","Arial",sans-serif !important;
+	}
+
+	
+ 	// move stats to just above comment box 
+	.fyre .fyre-stream-stats {
+		position: relative;
+		top: 26px;
+		left: 0;
+	}
+	.fyre .fyre-auth {
+		margin: 0 0 0 0 !important;
+	}
+	.fyre-editor {
+		margin-top: 25px !important;
+		margin-bottom: 20px;
+	}
+
+	// reposition listener count 
+	.fyre .fyre-live-container {
+		float: left !important;
+		text-align: left !important;
+		left: 120px !important;
+		position: absolute !important;
+	}
+	.fyre .fyre-livecount {
+		top: 1px !important;
+	}
+	.fyre .fyre-stream-stats, .fyre .fyre-stream-livecount {
+		font-family: "ff-din-web","Calibri","Arial",sans-serif !important;
+		font-weight: normal !important;
+		font-size: 12px !important;
+	}
+
+	// remove listener avatars from above comment box 
+	.fyre .fyre-listener-avatars {
+		display: none !important;
+	}
+
+	// style the login area 
+	.fyre .fyre-login-bar {
+		position: absolute !important;
+		right: 0 !important;
+		float: right !important;
+	}
+	.fyre .fyre-live-count {
+		position: absolute;
+		left: 200px !important;
+	}
+	.fyre .fyre-user-loggedin {
+		font-weight: 300 !important;
+		line-height: 15px !important;
+	}
+	.fyre .fyre-user-loggedout {
+		text-transform: uppercase;
+		margin: 2px 5px 0 0 !important;
+	}
+	.fyre .fyre-box-wrapper span.fyre-user-drop {
+		margin-right: 0 !important;
+	}
+	.fyre .fyre-login-bar .fyre-box-wrapper, .fyre .fyre-user-loggedout {
+		right: 0px !important;
+		float: right !important;
+		left: auto !important;
+		top: 1px !important;
+	}
+	.fyre .fyre-box-wrapper img.fyre-user-avatar-25 {
+		display: none;
+	}
+	.fyre .fyre-box-wrapper a.fyre-user-profile-link {
+		padding: 0 5px !important;
+	}
+	.fyre .fyre-user-drop, .fyre .fyre-box-list li a, .fyre .fyre-user-loggedout {
+		font-family: "ff-din-web","Calibri","Arial",sans-serif !important;
+		color: #3e3e3e !important;
+		font-size: 12px !important;
+	}
+	.fyre .fyre-box-list {
+		background: #1d1d1d !important;
+		border-radius: 0 0 0 0 !important;
+	}
+	.fyre .fyre-box-wrapper:hover, .fyre .fyre-box-wrapper.fyre-box-mobile-touch {
+		background: #1d1d1d !important;
+		border-color: #000 !important;
+		border-radius: 0 0 0 0 !important;
+	}
+	.fyre .fyre-box-list li:first-child {
+		border-top: 1px solid #000 !important;
+	}
+	.fyre .fyre-box-list li {
+		border-bottom: 1px solid #000 !important;
+	}
+
+	// style the comment box
+	body.editable, div.editable p {
+		font-family: "ff-din-web","Calibri","Arial",sans-serif !important;
+		font-size: 12px;
+		margin: 8px;
+		outline: medium none;
+		text-align: left;
+		color: #999 !important;
+	}
+	 
+	.fyre-editor-toolbar {
+		height: 40px !important;
+		border-bottom: 1px solid #000;
+	}
+
+	.fyre-editor-editable {
+		border: 0 none !important;
+		border-radius: 0 !important;
+		box-shadow: 0 0 0 #444444 inset !important;
+		height: 117px !important;
+	}
+	
+	// setting the dark grerybackground color and text works in chrome and  IE, seemlingly because the editor is in page,
+	// but in firefox, livefyre wraps editor in an iframe and there's no way to set the text color
+	.gecko
+	{
+		.fyre-editor-container .fyre-editor-editable {
+			background: #CCC !important;
+		}
+	}
+	
+	.chr, .ie, .saf 
+	{
+		.fyre-editor-container .fyre-editor-editable {
+			background: #444444 !important;
+		}
+	}
+	
+	
+	// =:ie9 hack 	
+	.ie9 .fyre-editor-container .fyre-editor-editable {
+		border-bottom: 1px solid #000 !important;
+	}
+	.fyre-editor-container {
+		border: 1px solid #000;
+		margin-bottom: 10px !important;
+	}
+	.goog-toolbar-separator {
+		border-left: 0 none;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div.fyre-button-left:first-child, .fyre-editor-toolbar .goog-toolbar > div.fyre-button-left:first-child > div {
+		border-right: 1px solid #2B2B2B !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div.fyre-button-right.fyre-post-button, .fyre-editor-toolbar .goog-toolbar > div.fyre-button-right.fyre-post-button > div, .fyre-editor-toolbar .goog-toolbar > div.goog-toolbar-separator {
+		border-radius: 0 !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div {
+		background: transparent url('/assets/images/socialize/modules/toolbar.jpg') repeat-x scroll left bottom !important;
+		-moz-box-sizing: inherit;
+		border-bottom: 0 none !important;
+		height: 41px !important;
+		width: 35px;
+		z-index: 2;
+	}
+	.fyre .fyre-stream-sort {
+		font-family: "ff-din-web","Calibri","Arial",sans-serif !important;
+		font-weight: normal !important;
+		font-size: 14px !important;
+	}
+
+	// style comment box buttons 
+	.fyre-editor-toolbar > .goog-toolbar {
+		background: transparent url('/assets/images/socialize/modules/toolbar.jpg') repeat-x scroll left bottom !important;
+	}
+	.fyre-editor-toolbar .fyre-button-left {
+		width: 44px !important;
+	}
+	.goog-inline-block .fyre-button-left .fyre-mention-button, .goog-inline-block .fyre-button-left .fyre-mention-button {
+		width: 44px !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > .goog-inline-block .fyre-button-left-inner-box {
+		height: 38px !important;
+		width: 44px !important;
+		text-indent: -9999px !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div.fyre-post-button .fyre-button-right-inner-box {
+		color: transparent !important;
+		text-indent: -9999px !important;
+		background: url('/assets/images/socialize/modules/postbutton.png') 0 0 no-repeat !important;
+		width: 58px !important;
+		text-shadow: 0 0 0 !important;
+		height: 32px !important;
+		padding-right: 7px;
+		text-transform: capitalize !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div.fyre-post-button .fyre-button-right-inner-box:hover {
+		background: url('/assets/images/socialize/modules/postbutton.png') 0 -32px no-repeat !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > .fyre-button-right > div {
+		padding: 5px 0 0 10px !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to {
+		width: 41px !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > div.fyre-button-right.fyre-post-button {
+		border-left: 1px solid #2b2b2b !important;
+		border-right: 0 none !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to {
+		border-left: 0 none !important;
+		border-right: 0 none !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > div.fyre-button-left:first-child {
+		border-left: 0 none !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar .fyre-format-button > div {
+		width: 44px !important;
+		background: url('/assets/images/socialize/modules/format.png') 5px 12px no-repeat !important;
+		text-indent: -9999px !important;
+		width: 42px;
+	}
+	.fyre-editor-toolbar .goog-toolbar .fyre-format-button.fyre-button-left-open > div {
+		background: url('/assets/images/socialize/modules/format.png') -35px 12px no-repeat !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar .fyre-mention-button > div {
+		width: 44px !important;
+		background: url('/assets/images/socialize/modules/mention.png') 0px 12px no-repeat !important;
+		text-indent: -9999px !important;
+		width: 42px;
+	}
+	.fyre-editor-toolbar .goog-toolbar .fyre-mention-button.fyre-button-left-open > div {
+		background: url('/assets/images/socialize/modules/mention.png') -39px 12px no-repeat !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to .fyre-button-right-inner-box {
+		color: transparent !important;
+		height: 32px !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to .fyre-button-right-outer-box {
+		padding: 0 !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to-facebook .fyre-button-right-inner-box {
+		background: url('/assets/images/socialize/modules/facebook.png') 0 0 no-repeat !important;
+		text-indent: -9999px !important;
+		width: 41px !important;
+		margin-top: 5px;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to-facebook .fyre-button-right-inner-box:hover {
+		background: url('/assets/images/socialize/modules/facebook.png') 0 -32px no-repeat !important;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to-twitter .fyre-button-right-inner-box {
+		background: url('/assets/images/socialize/modules/twitter.png') 0 0 no-repeat !important;
+		text-indent: -9999px !important;
+		width: 37px !important;
+		margin-top: 5px;
+	}
+	.fyre-editor-toolbar > .goog-toolbar > .fyre-post-to-twitter .fyre-button-right-inner-box:hover {
+		background: url('/assets/images/socialize/modules/twitter.png') 0 -32px no-repeat !important;
+	}
+
+	// style the format toolbar on the comment box 
+	.fyre-format-toolbar {
+		-moz-border-bottom-colors: none;
+		-moz-border-left-colors: none;
+		-moz-border-right-colors: none;
+		-moz-border-top-colors: none;
+		background-color: #393939 !important;
+		border-color: transparent !important;
+		border-right: 0 none !important;
+		border-radius: 0 0 0 0 !important;
+		border-style: 0 solid solid !important;
+		border-width: medium 0 0 !important;
+		height: 90px !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div {
+		border-right: 1px solid #2B2B2B !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#444444', EndColorStr='#444444') !important;
+	}
+	.fyre-editor-toolbar .goog-toolbar > div.fyre-post-button {
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#444444', EndColorStr='#444444') !important;
+	}
+	.fyre-format-toolbar .goog-toolbar-button {
+		border-right: 0 none !important;
+	}
+	.fyre-format-toolbar .goog-toolbar-button:nth-child(-n+3) {
+		border-bottom: 0 none !important;
+	}
+	.fyre-format-toolbar .tr-icon.tr-bold {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 12px -180px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-icon.tr-italic {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 12px -212px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-icon.tr-underline {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 12px -244px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-link {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 11px -276px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-icon.tr-BLOCKQUOTE {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 11px -308px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-icon.tr-insertOrderedList {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 10px -342px transparent !important;
+		margin-top: 8px;
+	}
+	.fyre-format-toolbar .tr-icon.tr-insertUnorderedList {
+		background: url("/assets/images/socialize/modules/newsprite.png") no-repeat scroll 11px -373px transparent !important;
+		margin-top: 8px;
+	}
+
+	// style individual comments 
+	.fyre .fyre-comment-user img.fyre-user-avatar {
+		height: 18px !important;
+		width: 18px !important;
+	}
+	.socialize .module p, .socialize .module b {
+	}
+	
+	// set these styles in socialize_page.css 
+	.fyre .fyre-comment-head a.fyre-comment-username {
+		font-size: 12px !important;
+	}
+	.fyre-user-twitter {
+		display: none;
+	}
+	.fyre .fyre-comment-actions a {
+		margin-right: 0 !important;
+	}
+	.fyre .fyre-comment-source-1 time.fyre-comment-date, .fyre .fyre-comment-source-2 time.fyre-comment-date, .fyre .fyre-comment-source-3 time.fyre-comment-date, .fyre .fyre-comment-source-7 time.fyre-comment-date {
+		background: none !important;
+		padding-left: 0 !important;
+	}
+	.fyre time.fyre-comment-date {
+		display: inline;
+		text-align: right;
+		padding: 1px 0 0 15px !important;
+		color: #3e3e3e !important;
+	}
+	.fyre .fyre-comment-source-1 > .fyre-comment-wrapper > .fyre-comment-head time.fyre-comment-date, .fyre .fyre-comment-source-2 > .fyre-comment-wrapper > .fyre-comment-head time.fyre-comment-date, .fyre .fyre-comment-source-3 > .fyre-comment-wrapper > .fyre-comment-head time.fyre-comment-date, .fyre .fyre-comment-source-7 > .fyre-comment-wrapper > .fyre-comment-head time.fyre-comment-date {
+		display: inline;
+		text-align: right;
+		padding: 3px 0 0 0 !important;
+		color: #3e3e3e !important;
+		text-decoration: none;
+	}
+	.fyre .fyre-comment-head {
+		height: 25px;
+		margin-left: 0px !important;
+		position: absolute;
+		bottom: 18px;
+		left: 50px;
+		font-size: 12px !important;
+	}
+	.fyre .fyre-comment-head a:hover {
+		text-decoration: none !important;
+	}
+	.fyre .fyre-comment-body {
+		margin-left: 0px !important;
+		.fyre-comment-media-expanded {
+    		margin-top: 15px;
+    	}
+	}
+	.fyre .fyre-comment-user, .fyre .fyre-comment-source-0 .fyre-comment-user {
+		bottom: 10px;
+		left: 20px;
+	}
+	.fyre .fyre-comment-actions {
+		margin-top: 0 !important;
+		float: right !important;
+		opacity: 1 !important;
+		filter: alpha(opacity=1) !important;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)" !important;
+	}
+	.fyre-comment-like-count, .fyre-comment-like-imgs {
+		display: none !important;
+		width: 1;
+		height: 1;
+	}
+	.fyre .fyre-comment-footer {
+		margin: 0 !important;
+		padding-top: 0 !important;
+	}
+	
+	
+	.fyre .fyre-comment-reply {
+		top: 0px !important;
+		padding: 0 3px 0 0 !important;
+		border-radius: 0 0 0 0 !important;
+	}
+	// =:ie9-10 hack 	
+	.ie .fyre .fyre-comment-reply {
+		top: -1px !important;
+	}
+	.fyre .fyre-comment-reply:hover {
+		text-decoration: underline !important;
+	}
+	.fyre .fyre-comment-actions a > span {
+		background: none !important;
+		margin-right: 0 !important;
+		padding-right: 10px;
+		width: auto !important;
+	}
+	.fyre .fyre-comment-media-expanded {
+		margin-bottom: 10px;	
+	}
+	.fyre .fyre-comment-head a.fyre-twitter-handle .fyre-comment-from-text {
+		margin-right: 15px;
+	}
+	.fyre-comment-footer > .fyre-editor {
+		margin-bottom: 38px;
+	}
+	.fyre .fyre-comment-article .fyre-comment-wrapper time.fyre-comment-date {
+		display: inline !important;
+		float: none !important;
+	}
+	.fyre .fyre-comment-premod {
+		display: none;
+	}
+
+	// Move logo to bottom of stream 
+	.fyre-widget .fyre-logo-drop, .fyre-widget .fyre-logo-help, .fyre-widget .fyre-help {
+		display: none !important;
+	}
+	#powered_by_livefyre_new a {
+		background: url('http://zor.livefyre.com/wjs/v1.0/images/icons/poweredbylivefyre.png') no-repeat left top;
+		display: block;
+		height: 24px;
+		font: 13px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+		text-decoration: none;
+		color: #404040;
+		padding-left: 28px;
+		padding-top: 4px;
+	}
+
+	// sort options 
+	.social-stream .fyre .fyre-stream-sort {
+		display: none;
+	}
+
+	// remove rounded edges from avatar      
+	.social-stream .fyre .fyre-comment-user img.fyre-user-avatar {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+         
+	// article base styles             
+	.social-stream .fyre-comment-wrapper {
+		position: relative;
+		padding: 20px;
+		margin-bottom: 10px;
+		background: #1d1d1d;
+		border: #131313 solid 1px;
+		font-size: 15px;
+		line-height: 21px;
+		color: #999999 !important;
+	}
+
+	.social-stream .fyre-comment-article a, .fyre-comment-body .social-stream .fyre-user-twitter {
+		font-weight: normal !important;
+		font-size: 15px;
+		line-height: 21px;
+		color: #FFF !important;
+	}
+	.fyre-comment-head .social-stream .fyre-user-twitter, .social-stream .fyre-comment-from-text {
+		font-weight: normal !important;
+		font-size: 12px;
+		line-height: 21px;
+		color: #FFF !important;
+	}
+
+	// set font size on comment action items 
+	.social-stream .fyre-comment-footer .fyre-comment-actions a, .social-stream .fyre-comment-footer .fyre-comment-actions span, .social-stream .fyre-comment-footer .fyre-comment-like .fyre-comment-like-btn, .social-stream .fyre-comment-footer .fyre-comment-reply {
+		font-size: 12px !important;
+		color: #666 !important;
+	}
+
+	// move reply + like buttons to bottom 
+	.social-stream .fyre-comment-footer .fyre-comment-like .fyre-comment-like-btn, .social-stream .fyre-comment-footer .fyre-tw-reply-link, .social-stream .fyre-comment-footer .fyre-tw-retweet-link, .social-stream .fyre-comment-footer .fyre-tw-fav-link {
+		display: none;
+	}
+
+	// hide comment divider 
+	.social-stream .fyre-comment-article .fyre-comment-divider {
+		display: none;
+	}
+
+	// hide follow feature 
+	.social-stream .fyre .fyre-follow-button {
+		display: none;
+	}
+
+	// hide growl-style message stack 
+	.social-stream .fyre .fyre-notifier-container {
+		display: none;
+	}
+
+	// =:flag, =:modal 
+	.fyre-modal {
+		z-index: 5000 !important;
+	}
+	.fyre-modal-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: #000;
+		z-index: 5000 !important;
+	}
+
+	// hide background slashes across show more comments area 
+	.fyre .fyre-stream-more {
+		background: none !important;
+	}
+
+	// begin patch code  from livefyre 
+	// --------------------------------------------------------------------------------------
+	.fyre-follow-button {
+		display: none;
+	}
+	.fyre-format-button {
+		border-left: none;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		-ms-border-radius: 0;
+		-o-border-radius: 0;
+		border-radius: 0;
+	}
+
+	.fyre-editor-toolbar .goog-toolbar {
+		height: 100%;
+	}
+
+	.fyre-editor-toolbar .fyre-button-left-inner-box,
+
+	.fyre-editor-toolbar .fyre-button-right-inner-box {
+		line-height: 40px;
+	}
+
+	.fyre-post-button {
+		width: auto;
+	}
+
+	.fyre-post-button .fyre-button-right-inner-box {
+	// needed to fix issue where hovering/clicking on top right of share button was triggering post. 
+		   overflow: hidden;
+	}
+
+	.fyre-share-button {
+		border-color: #2d2d2d;
+		border-right: none !important;
+		vertical-align: top;
+	}
+	.fyre-share-button .fyre-button-right-outer-box {
+		padding: 0 0 0 10px !important;
+	}
+	.fyre-share-button .fyre-button-right-inner-box {
+		background-position: 60px 18px;
+		color: #aaa;
+		padding: 0 20px;
+	}
+	.fyre-share-button .fyre-share-counter {
+		top: 12px;
+	}
+	.fyre-editor-error {
+		bottom: 42px;
+	}
+	.fyre-editor-spinner {
+		bottom: 46px;
+	}
+	
+	// show and hide editor/post function 
+	.disallow-posting {
+		.fyre-editor {
+			display:none;
+		}
+		.fyre-stream-content {
+			margin-top:3em;
+		}
+	}
+	
+	
+	// No surrender, No delete!

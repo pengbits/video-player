@@ -1,0 +1,195 @@
+
+	// 
+	// CSS
+	// ------------------------------------------------------------------------------------------
+	// @site			sho.com <desktop>
+	// @project      	sports homepage prototypes
+	// @file			_carousel_remix.scss
+	// @author			dpaul
+	// @desc			rules for new responsive/fluid carousel
+	// ----------------------------------------------------------------------------------------*/
+
+	// carousel remix
+	.carousel-rmx-outer {}
+	
+	.carousel-rmx-outer.loading {
+		background: #333333 no-repeat url(/assets/images/lib/spinners/balls_333333_48x48.gif) center center;
+		}
+		
+	.carousel-rmx {
+		overflow: hidden;
+		visibility: hidden;
+		position: relative;
+		
+		
+		.panels {
+			overflow: hidden;
+			position: relative;
+			}
+		
+		.panel {
+			float:left;
+			position:relative;
+			width:100%;
+			}
+		
+		// to protech against bad assets blowing up the page, panel img is actually a spacer,
+		// with real art drawn as css background-image property...
+		img {
+			background-color:#000;
+			@include vendor(background-size, cover)
+			}
+		}
+	
+	// because it's built with percentages, we have to set a width on the wrapper el,
+	// by tagging with a classname denoting how many panels there are..
+	@for $i from 1 through 12 {
+	.carousel-rmx .panels.items-#{$i} {
+		width:(100% * $i);
+			.panel {
+				width:((1/$i)*100)*1%;
+			}
+		}
+	}
+	
+	
+	// 	<div class="carousel-rmx-footer">
+	// 		<div class="carousel-rmx-footer-head">
+	// 			<h4>Judah vs. Malignaggi</h4>
+	// 		</div>
+	// 		<div class="carousel-rmx-footer-stroke">.</div>
+	// 		<div class="carousel-rmx-footer-body">
+	// 			<span class="sub-title">Live from Brooklyn, Zab Judah and Paulie Malignaggi headline an unforgettable night of boxing.</span>
+	// 			<ul class="inline">
+	// 				<li>
+	// 					<span class="cta-list"><a href="/sho/video/titles/23931/judah-vs-malignaggi-battle-in-brooklyn" class="video" data-behavior="play-video" data-video-id="23931" data-click-id="carousel:2:other:judah vs. malignaggi::video_other:watch preview">WATCH PREVIEW</a></span>
+	// 				</li>
+	// 				<li>
+	// 					<span class="cta-list"><a href="" class="more" data-behavior="track-click" data-click-id="carousel:2:other:judah vs. malignaggi::link_product:learn more">LEARN MORE</a></span>
+	// 				</li>
+	// 			</ul>
+	// 		</div>
+	// 	</div><!-- END panel -->
+		
+	.carousel-rmx-footer {
+		position:relative;
+		padding:15px 0px 15px 260px;
+		border-right:#000 solid 2px; // oversized to show under shim
+		}
+		
+	.carousel-rmx-footer-head, 	
+	.carousel-rmx-footer-body {
+		// outline:orange solid 1px;
+		}
+		
+	.carousel-rmx-footer-head {
+		position:absolute;
+		left:20px;
+		width:220px;
+		
+		h4 {
+			display:inline;
+			font-size:22px;
+			line-height:25px;
+			text-transform:uppercase;
+			}
+		}
+		
+	.carousel-rmx-footer-stroke {
+		position:absolute; 
+		top:20px;
+		bottom:15px;
+		width:1px;	
+		background:#000; 
+		color:#000;
+		font-size:1px; 
+		}
+		
+	.carousel-rmx-footer-body {
+		padding-top:3px;
+		padding-left:20px;
+		padding-right:20px;
+		
+		span { 
+			display:block;
+			font-size:12px;
+			line-height:16px;
+			}
+			
+		.tunein {}
+		.sub-title { 
+			color:#737373 ;
+			margin-bottom:8px;
+			}
+		.cta-list {
+			padding-top:3px;
+			}
+			
+		.cta-list li a {
+			margin-right:20px;
+			padding-left:16px;
+			line-height:11px;
+			background: transparent no-repeat url(/assets/images/lib/icons/disclosure-red_11x7.png) center left;
+			text-transform:uppercase;
+			&.video {
+				padding-left:12px;
+				background-image: url(/assets/images/lib/icons/play-red_7x11.png);
+				}	
+			}
+		}
+
+	// panel indicator and next/prev controls
+	.carousel-rmx-controls {
+		height:60px;
+		width:100%;
+		position:absolute;
+		top:0px; // this is set in javascript
+		
+		.panel-indicator {
+			margin-top:50px;
+			margin-left:20px;
+			
+			li b {
+				margin-right:15px;
+				width:10px; 
+				height:10px;
+				background:#FFF;
+				@include vendor('border-radius', 10px);
+				opacity:0.5
+				}
+			li.aktiv b {
+				opacity:1;
+				}
+			}
+		
+		.carousel-rmx-next-prev {
+			position:absolute;
+			right:7px;
+			bottom:0px;
+			
+			li a {
+				margin-right:13px;
+				width:43px;
+				height:43px;
+				background:#292929 no-repeat url(/assets/images/sports/home/nextprev_43x43.png) 0px 0px;
+				text-indent:-1000px;
+				overflow:hidden;
+				
+				&.next {
+					background-position:-43px 0px
+					}
+				}
+			}
+	}
+	
+	// shim to hide overflow... set bg color in theme
+	.carousel-remix-shim {
+		position:absolute;
+		top:0px;
+		bottom:0px;
+		width:10px;
+		left:100px;
+	}
+	
+	
+	
